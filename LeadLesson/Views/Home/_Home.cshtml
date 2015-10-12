@@ -1,0 +1,23 @@
+﻿<div class="jumbotron">
+    <h1>Leading lesson</h1>
+    <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
+</div>
+<div class="row" ng-app="LeadLessonModule">
+    <form name="leadExamplesForm" ng-submit="submit()" ng-controller="LeadController">
+        <h3>Are you sure that you can lead from all combinations below? Please indicate the correct card in each one and click check</h3>
+        <ul class="col-md-12" ng-repeat="dist in LeadDistribution">
+            <li class="list-group-item">
+                <div ng-class="dist.correct != undefined ? (dist.correct ? 'alert-success' : 'alert-danger') : ''">
+                    {{dist.key | Tto10}} :
+                    <span ng-repeat="card in dist.key.split('')">
+                        <input type="radio" ng-model="dist.chosenValue" ng-value="card">{{card | Tto10}}
+                    </span>
+                    @*<span class="glyphicon glyphicon-arrow-right"></span> Your choice: {{dist.chosenValue | Tto10}}*@
+                </div>
+            </li>
+        </ul>
+        <p ng-bind="validationMessage"></p>
+        <button>Check it</button>
+    </form>
+
+</div>
