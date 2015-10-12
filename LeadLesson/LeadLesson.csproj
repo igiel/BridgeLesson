@@ -230,8 +230,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="angular\app.js" />
-    <Content Include="angular\controller.js" />
+    <Content Include="Scripts\app\app.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap.css" />
@@ -265,6 +264,7 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\app\LeadController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -286,7 +286,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular\errors.json" />
     <Content Include="Scripts\angular\angular.min.js.map" />
     <Content Include="Scripts\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
@@ -1088,7 +1088,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\angular\version.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

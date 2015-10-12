@@ -1,36 +1,23 @@
 ﻿(function () {
     var LeadLessonModule = angular.module('LeadLessonModule', []);
 
-    var LeadController = function ($scope, $leadExamples) {
-        var LeadDistributionDict = $leadExamples;
-
-        $scope.LeadDistribution = LeadDistributionDict;
-
-        $scope.submit = function () {
-            $scope.validationMessage = '';
-            var allExamplesCorrect = true;
-            for (var i = 0; i < $scope.LeadDistribution.length; i++) {
-                var distribution = $scope.LeadDistribution[i];
-                distribution.correct = distribution.chosenValue == distribution.value;
-                if (!distribution.correct)
-                    allExamplesCorrect = false;
-            }
-            $scope.validationMessage = allExamplesCorrect ? 'Well done!' : 'Are you sure?';
-        };
-    };
-
-    LeadController.$inject = ['$scope','leadExamples'];
-
-    angular.module('LeadLessonModule').controller('LeadController', LeadController);
-
-    angular.module('LeadLessonModule')
-    .filter('Tto10', function () {
+   
+    angular.module('LeadLessonModule').filter('Tto10', function () {
       return function (text) {
           return text ? text.replace('T', '10') : '';
       };
     });
+        
+    //We already have a limitTo filter built-in to angular,
+    //let's make a startFrom filter
+    angular.module('LeadLessonModule').filter('startFrom', function () {
+        return function (input, start) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+    });
 
-    
+
     angular.module('LeadLessonModule').factory('leadExamples', [
         function leadExamplesFactory() {
 
