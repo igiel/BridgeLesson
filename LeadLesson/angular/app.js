@@ -44,20 +44,23 @@
             //})
             return [
                 { key: 'AK', value: 'A' },
-                { key: 'DWT43', value: 'D' },
+                { key: 'QJT43', value: 'Q' },
                 { key: 'T9', value: 'T' },
                 { key: 'T954', value: '9' },
                 { key: 'Q32', value: '3' },
                 { key: 'T9432', value: '9' },
-                { key: 'W987', value: '7' },
+                { key: 'J987', value: '7' },
                 { key: 'QT3', value: 'T' },
-                { key: 'KDT42', value: 'K' },
-                { key: 'KDT983', value: 'D' },
-                { key: 'AKD', value: 'A' },
+                { key: 'KQT42', value: 'K' },
+                { key: 'KQT983', value: 'Q' },
+                { key: 'AKQ', value: 'A' },
                 { key: '97532', value: '7' },
                 { key: '9754', value: '7' },
-                { key: 'WT6543', value: 'W' },
-                { key: 'KWT542', value: 'W' }
+                { key: 'JT6543', value: 'J' },
+                { key: 'KJT542', value: 'J' },
+                { key: 'T93', value: '9' },
+                { key: 'QT9542', value: 'T' },
+                { key: 'T842', value: '8' }
                 ]
             ;
         }
