@@ -20,7 +20,9 @@
                 </li>
             </ul>
             <p ng-bind="validationMessage"></p>
-            <button>Check it</button>
+            <button type="button" class="btn btn-primary" ng-click="proceedBack()" ng-disabled="!canProceedBack">Previous set</button>
+            <button type="submit" class="btn btn-primary">Check it</button>
+            <button type="button" class="btn btn-success" ng-click="proceedToTheNext()" ng-disabled="!canProceedFurther">Next set</button>
         </form>
     </div>
 </div>
