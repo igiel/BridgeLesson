@@ -24,12 +24,16 @@ namespace LeadLesson
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/angular/angular.min.js",
                 "~/Scripts/app/app.js",
-                "~/Scripts/app/LeadController.js",
-                "~/Scripts/app/BiddingSystemController.js",
-                "~/Scripts/app/bidding-quiz.html",
-                
+                "~/Scripts/app/directives.js",
+                "~/Scripts/app/filters.js",
                 "~/Scripts/sammy-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/scripts")
+                .IncludeDirectory("~/Scripts/controllers", "*.js", true)
+                .IncludeDirectory("~/Scripts/services", "*.js", true)
+                //.IncludeDirectory("~/Scripts/templates", "*.html", true)
+                );
+                        
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

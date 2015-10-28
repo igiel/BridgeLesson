@@ -232,6 +232,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\services\leadExamplesService.js" />
+    <Content Include="Scripts\app\directives.js" />
+    <Content Include="Scripts\app\filters.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
@@ -266,10 +269,10 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <Content Include="Scripts\app\bidding-quiz-results.html" />
-    <Content Include="Scripts\app\bidding-quiz.html" />
-    <Content Include="Scripts\app\BiddingSystemController.js" />
-    <Content Include="Scripts\app\LeadController.js" />
+    <Content Include="Scripts\templates\bidding-quiz-results.html" />
+    <Content Include="Scripts\templates\bidding-quiz.html" />
+    <Content Include="Scripts\controllers\BiddingSystemController.js" />
+    <Content Include="Scripts\controllers\LeadController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
