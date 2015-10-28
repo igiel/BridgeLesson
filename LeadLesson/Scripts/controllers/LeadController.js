@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var LeadController = function (biddingCtrl, $leadExamples, $http) {
+    var LeadController = function ($scope, $leadExamples, $http) {
         var LeadDistributionDict = $leadExamples;
 
         $scope.canProceedFurther = false;
