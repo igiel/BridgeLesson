@@ -12,5 +12,17 @@ namespace LeadLesson.Controllers
         {
             return View();
         }
+        public ActionResult BiddingLesson()
+        {
+            return View();
+        }
+
+        public ActionResult LeadingLesson()
+        {
+            return View();
+        }
+
     }
+
+
 }

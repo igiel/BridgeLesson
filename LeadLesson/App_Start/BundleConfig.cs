@@ -25,6 +25,9 @@ namespace LeadLesson
                 "~/Scripts/angular/angular.min.js",
                 "~/Scripts/app/app.js",
                 "~/Scripts/app/LeadController.js",
+                "~/Scripts/app/BiddingSystemController.js",
+                "~/Scripts/app/bidding-quiz.html",
+                
                 "~/Scripts/sammy-{version}.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

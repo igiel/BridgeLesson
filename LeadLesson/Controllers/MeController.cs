@@ -14,7 +14,7 @@ using LeadLesson.Models;
 
 namespace LeadLesson.Controllers
 {
-    [Authorize]
+    [System.Web.Mvc.Authorize]
     public class MeController : ApiController
     {
         private ApplicationUserManager _userManager;
@@ -44,7 +44,9 @@ namespace LeadLesson.Controllers
         public GetViewModel Get()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
-            return new GetViewModel() { Hometown = user.Hometown };
+
+            var hometown = user != null ? user.Hometown : "Not logged";
+            return new GetViewModel() { Hometown =  hometown};
         }
     }
 }

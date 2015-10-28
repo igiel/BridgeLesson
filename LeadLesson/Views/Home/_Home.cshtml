@@ -1,28 +1,16 @@
 ﻿
-<div class="row" ng-app="LeadLessonModule">
+<div class="row">
     <div class="col-sm-12">
         <div class="jumbotron">
-            <h1>Leading lesson</h1>
-            <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
+            <h1>Bridge lesson</h1>
+            <p class="lead">This site will help you to learn about 2 most important things in contract bridge: Leading and Bidding.</p>
         </div>
-        <form name="leadExamplesForm" ng-submit="submit()" ng-controller="LeadController">
-            <h3>Are you sure that you know how to lead from all combinations below? </h3>
-            <p>Please indicate the correct card in each one and click check. We assume that we lead in the same way on color and NT games.</p>
+        <div class="text-center">
+            <p>What would you like to practice?</p>
             
-            <ul class="col-md-12" ng-repeat="dist in LeadDistribution | startFrom:currentPage*pageSize | limitTo:pageSize">
-                <li class="list-group-item">
-                    <div ng-class="dist.correct != undefined ? (dist.correct ? 'alert-success' : 'alert-danger') : ''">
-                        {{dist.key | Tto10}} :
-                        <span ng-repeat="card in dist.key.split('')">
-                            <input type="radio" ng-model="dist.chosenValue" ng-value="card">{{card | Tto10}}
-                        </span>
-                    </div>
-                </li>
-            </ul>
-            <p ng-bind="validationMessage"></p>
-            <button type="button" class="btn btn-primary" ng-click="proceedBack()" ng-disabled="!canProceedBack">Previous set</button>
-            <button type="submit" class="btn btn-primary">Check it</button>
-            <button type="button" class="btn btn-success" ng-click="proceedToTheNext()" ng-disabled="!canProceedFurther">Next set</button>
-        </form>
-    </div>
+            <a href="@Url.Action("LeadingLesson")" class="btn btn-primary" title="Leading is choosing the card that should be played from given card configuration. It helps partner to understand your values in this color">Leading lesson</a>
+            <a href="@Url.Action("BiddingLesson")" class="btn btn-primary" title="Having the same agreements with your partner in bidding helps you to play the best possible contract">Bidding lesson</a>
+        </div>
+        
+     </div>
 </div>

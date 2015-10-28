@@ -17,6 +17,13 @@
         }
     });
 
+    LeadLessonModule.directive('biddingQuiz',function()
+    {
+        return {
+            restrict: 'E',
+            templateUrl: '../Scripts/app/bidding-quiz.html'
+        };
+    })
 
     angular.module('LeadLessonModule').factory('leadExamples', [
         function leadExamplesFactory() {

@@ -1,13 +1,15 @@
 ﻿(function () {
     'use strict';
 
-    var LeadController = function ($scope, $leadExamples) {
+    var LeadController = function (biddingCtrl, $leadExamples, $http) {
         var LeadDistributionDict = $leadExamples;
 
         $scope.canProceedFurther = false;
         $scope.canProceedBack = false;
         $scope.currentPage = 0;
         $scope.pageSize = 7;
+
+        $scope.Hometown = 'Unknownhometown';
 
         $scope.LeadDistribution = LeadDistributionDict;
 
@@ -63,9 +65,20 @@
             }
             $scope.canProceedFurther = allExamplesCorrect && $scope.LeadDistribution.length >= endValue;
         }
+
+        $scope.GetHometownFromApi = function () {
+            var hometownResult = $http({
+                method: 'GET',
+                url: 'api/Me'
+            }).then(function successCallback(response) {
+                $scope.Hometown = response.data;
+            }, function errorCallback(response) {
+                $scope.Hometown = "Error on retrieving hometown: " + response.statusText;
+            });
+        }
     };
 
-    LeadController.$inject = ['$scope', 'leadExamples'];
+    LeadController.$inject = ['$scope', 'leadExamples', '$http'];
 
     angular.module('LeadLessonModule').controller('LeadController', LeadController);
 

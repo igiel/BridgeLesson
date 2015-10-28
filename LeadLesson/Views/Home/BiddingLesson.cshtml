@@ -1,0 +1,13 @@
+﻿
+<div class="row" ng-app="LeadLessonModule">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Bidding system lesson</h1>
+            <p class="lead">This site would help you improve your bidding system</p>
+        </div>
+        <div ng-controller="BiddingSystemController as biddingCtrl" >
+            <bidding-quiz ng-hide="biddingCtrl.isLastProblem"></bidding-quiz>
+            <bidding-quiz-results></bidding-quiz-results>
+        </div>
+     </div>
+</div>

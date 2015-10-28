@@ -1,0 +1,30 @@
+﻿
+<div class="row" ng-app="LeadLessonModule">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Bidding system lesson</h1>
+            <p class="lead">This site would help you improve your bidding system</p>
+        </div>
+        <form name="leadExamplesForm" ng-submit="submit()" ng-controller="BiddingSystemController">
+            <h3>What is the meaning of this bid?</h3>
+                        
+            <ul class="col-md-12" ng-repeat="problem in biddingExamples | startFrom:currentProblem | limitTo:1">
+                <li class="list-group-item">
+                    @*<div ng-class="dist.correct != undefined ? (dist.correct ? 'alert-success' : 'alert-danger') : ''">
+                        {{dist.key | Tto10}} :
+                        <span ng-repeat="card in dist.key.split('')">
+                            <input type="radio" ng-model="dist.chosenValue" ng-value="card">{{card | Tto10}}
+                        </span>
+                    </div>*@
+                    <div>{{problem.sequence}}</div>
+                </li>
+            </ul>
+            <p ng-bind="validationMessage"></p>
+            <button type="button" class="btn btn-primary" ng-click="proceedBack()" ng-disabled="!canProceedBack">Previous set</button>
+            <button type="submit" class="btn btn-primary">Check it</button>
+            <button type="button" class="btn btn-success" ng-click="proceedToTheNext()" ng-disabled="!canProceedFurther">Next set</button>
+            <button type="button" class="btn btn-primary" ng-click="GetHometownFromApi()">{{Hometown}}</button>
+        </form>
+        
+     </div>
+</div>
