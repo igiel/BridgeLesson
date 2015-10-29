@@ -10,7 +10,7 @@
     angular.module('BridgeLessonModule').filter('startFrom', function () {
         return function (input, start) {
             start = +start; //parse to int
-            return input.slice(start);
+            return input ? input.slice(start) : input;
         }
     });
 
@@ -18,6 +18,9 @@
     //format: 'N:1H;E:dbl,S:2NT'
     angular.module('BridgeLessonModule').filter('bidding', ['$sce',function ($sce) {
         return function (text) {
+            if (!text)
+                return text;
+
             var bids = text.split(';');
             var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
             for (var i = 0; i < bids.length; i++) {
