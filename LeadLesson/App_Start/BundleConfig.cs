@@ -23,6 +23,7 @@ namespace LeadLesson
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/angular/angular.min.js",
+                "~/Scripts/angular/angular-sanitize.min.js",
                 "~/Scripts/app/app.js",
                 "~/Scripts/app/directives.js",
                 "~/Scripts/app/filters.js",

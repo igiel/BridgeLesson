@@ -1,10 +1,10 @@
 ﻿<div>
-    <h3>Your score: </h3>
+    <h3>Your score: {{biddingCtrl.solvedCount()}}/{{biddingCtrl.biddingExamples.length}}</h3>
 
     <ul class="col-md-12" ng-repeat="problem in biddingCtrl.biddingExamples">
         <li class="list-group-item">
             <div class="row container-fluid" ng-class="problem.isCorrect != undefined ? (problem.isCorrect ? 'alert-success' : 'alert-danger') : ''">
-                <div class="col-xs-4">{{problem.sequence}}</div>
+                <div class="col-xs-4"><span ng-bind-html="problem.sequence | bidding"></span></div>
                 <div class="col-xs-4">{{problem.answer}}</div>
             </div>
         </li>

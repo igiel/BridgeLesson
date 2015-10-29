@@ -4,15 +4,15 @@
     <ul class="col-md-12" ng-repeat="problem in biddingCtrl.biddingExamples | startFrom:biddingCtrl.currentProblem | limitTo:1">
         <li class="list-group-item">
             <div class="row container-fluid">
-                <div class="col-xs-4">{{problem.sequence}}</div>
-                <div class="col-xs-4" ng-show="biddingCtrl.isChecked">{{problem.answer}}</div>
+                <div class="col-sm-6"><span ng-bind-html="problem.sequence | bidding"></span></div>
+                <div class="col-sm-6" ng-show="biddingCtrl.isChecked">{{problem.answer}}</div>
             </div>
         </li>
     </ul>
     <p ng-bind="biddingCtrl.validationMessage"></p>
-    <button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedBack()" ng-disabled="!biddingCtrl.canProceedBack">Previous problem</button>
+    <!--<button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedBack()" ng-disabled="!biddingCtrl.canProceedBack">Previous problem</button>-->
     <button type="submit" class="btn btn-primary" ng-disabled="biddingCtrl.isChecked">Check it</button>
-    <button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedToTheNext()" ng-disabled="!biddingCtrl.canProceedFurther">Next problem</button>
+    <!--<button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedToTheNext()" ng-disabled="!biddingCtrl.canProceedFurther">Next problem</button>-->
     <div id="IsAnswerCorrectDiv" ng-show="biddingCtrl.isChecked">
         Did you know that? <br />
         <button type="button" class="btn btn-success" ng-click="biddingCtrl.correctAnswer()">yes</button>
