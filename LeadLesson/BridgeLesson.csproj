@@ -1097,8 +1097,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\angular\version.json" />
-    <Content Include="Views\LeadLesson\Index1.cshtml" />
-    <Content Include="Views\BiddingSystem\Index1.cshtml" />
+    <Content Include="Views\LeadLesson\Index.cshtml" />
+    <Content Include="Views\BiddingSystem\Index.cshtml" />
     <Content Include="Views\Home\BiddingLesson.cshtml" />
     <Content Include="Views\Home\LeadingLesson.cshtml" />
   </ItemGroup>

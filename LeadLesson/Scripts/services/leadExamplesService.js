@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('LeadLessonModule').factory('leadExamples', [
+    angular.module('BridgeLessonModule').factory('leadExamples', [
         function leadExamplesFactory() {
 
             var myApi = {};

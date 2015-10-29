@@ -1,4 +1,4 @@
 ﻿(function () {
-    var LeadLessonModule = angular.module('LeadLessonModule', []);
+    var BridgeLessonModule = angular.module('BridgeLessonModule', []);
 }());
 

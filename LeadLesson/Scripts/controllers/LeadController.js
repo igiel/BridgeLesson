@@ -12,7 +12,7 @@
         $scope.Hometown = 'Unknownhometown';
 
         $scope.LeadDistribution = LeadDistributionDict;
-
+         
         $scope.submit = function () {
             $scope.validationMessage = '';
             var startValue = $scope.currentPage * $scope.pageSize;
@@ -80,6 +80,6 @@
 
     LeadController.$inject = ['$scope', 'leadExamples', '$http'];
 
-    angular.module('LeadLessonModule').controller('LeadController', LeadController);
+    angular.module('BridgeLessonModule').controller('LeadController', LeadController);
 
 })();

@@ -61,6 +61,6 @@
 
     BiddingSystemController.$inject = ['leadExamples', '$http'];
 
-    angular.module('LeadLessonModule').controller('BiddingSystemController', BiddingSystemController);
+    angular.module('BridgeLessonModule').controller('BiddingSystemController', BiddingSystemController);
 
 })();
