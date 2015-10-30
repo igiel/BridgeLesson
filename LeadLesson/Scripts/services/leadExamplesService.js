@@ -2,14 +2,6 @@
     angular.module('BridgeLessonModule').factory('leadExamples', [
         function leadExamplesFactory() {
 
-            var myApi = {};
-
-            myApi.abc = function () {
-                return $http.get();
-            }
-            //return $resource('/api/heroes', {}, {
-            //    query: { method: 'GET', params: {}, isArray: true }
-            //})
             return [
                 { key: 'AK', value: 'A' },
                 { key: 'QJT43', value: 'Q' },

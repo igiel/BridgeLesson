@@ -204,6 +204,7 @@
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\BiddingSequence.cs" />
     <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BiddingRepository.cs" />
     <Compile Include="Controllers\BiddingSystemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeadLessonController.cs" />
@@ -1102,6 +1104,7 @@
     <Content Include="Views\BiddingSystem\Index.cshtml" />
     <Content Include="Views\Home\BiddingLesson.cshtml" />
     <Content Include="Views\Home\LeadingLesson.cshtml" />
+    <Content Include="Views\Home\BiddingQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

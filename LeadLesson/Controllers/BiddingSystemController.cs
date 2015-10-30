@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Results;
+﻿using System.Web.Http;
 
 namespace LeadLesson.Controllers
 {
     public class BiddingSystemController : ApiController
     {
+        private static readonly BiddingRepository biddingRepository = new BiddingRepository();
+
         // GET: api/BiddingSystem
-        public HttpResponseMessage Get()
+        public IHttpActionResult Get()
         {
-            var biddingSequences = new List<BiddingSequence>
-            {
-                new BiddingSequence("N:pass;E:1H;S:1P;N:1NT","7-9 with stopper"),
-                new BiddingSequence("N:1H;E:dbl;S:2NT","10-12 4+ H!"),
-                new BiddingSequence("N:pass;E:1H;S:1P;N:1NT;E:2C!;S:2D!","7-9 without stopper"),
-            };
-            return Request.CreateResponse(HttpStatusCode.OK, biddingSequences);
-            //return new string[] { "value1", "value2" };
+            var biddingSequences = biddingRepository.GetBiddingSequences();
+            return Ok(biddingSequences);
         }
 
         // GET: api/BiddingSystem/5
@@ -30,13 +20,15 @@ namespace LeadLesson.Controllers
         }
 
         // POST: api/BiddingSystem
-        public void Post([FromBody]string value)
+        public void Post([FromBody]BiddingSequence biddingSequence)
         {
+            biddingRepository.AddBiddingSequence(biddingSequence);
         }
 
         // PUT: api/BiddingSystem/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]BiddingSequence biddingSequence)
         {
+            biddingRepository.AddBiddingSequence(biddingSequence);
         }
 
         // DELETE: api/BiddingSystem/5
@@ -44,18 +36,6 @@ namespace LeadLesson.Controllers
         {
         }
 
-        class BiddingSequence
-        {
-            public string Sequence { get; set; }
-            public string Answer { get; set; }
-
-            public BiddingSequence(string sequence, string answer)
-            {
-                this.Sequence = sequence;
-
-                this.Answer = answer;
-
-            }
-        }
+       
     }
 }

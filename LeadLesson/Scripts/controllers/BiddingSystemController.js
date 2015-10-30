@@ -1,26 +1,19 @@
 ﻿(function () {
     'use strict';
 
-    var BiddingSystemController = function ($biddingSystemService, $http) {
+    var BiddingSystemController = function (biddingSystemService, $http) {
 
         var biddingCtrl = this;
 
-        $biddingSystemService.getBiddingSystem()
-           .success(function (custs) {
-               biddingCtrl.biddingExamples = custs;
-           })
-           .error(function (error) {
-               $scope.status = 'Unable to load customer data: ' + error.message;
-           });
-
-       
         //NESW
-        //in answer bbo tokens for color symbols S!,H!,C!,D! 
-        //biddingCtrl.biddingExamples = $biddingSystemService;
-        //[{ sequence: 'N:pass;E:1H;S:1P;N:1NT', answer: '7-9 with stopper' },
-        //    { sequence: 'N:1H;E:dbl;S:2NT', answer: '10-12 4+ H!' },
-        //    { sequence: 'N:pass;E:1H;S:1P;N:1NT;E:2C!;S:2D!', answer: '7-9 with stopper' }];
+        //in answer bbo tokens for color symbols should be converted from S!,H!,C!,D! 
+        
+        biddingSystemService.getBiddingSystem()
+            .then(function (sequences) {
+                biddingCtrl.biddingExamples = sequences.data;
+            });
 
+          
         biddingCtrl.canProceedFurther = false;
         biddingCtrl.canProceedBack = false;
         biddingCtrl.currentProblem = 0;
