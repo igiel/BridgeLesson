@@ -21,6 +21,16 @@ namespace LeadLesson.Controllers
         {
             return View();
         }
+        public ActionResult ManageBiddingSystem()
+        {
+            return View();
+        }
+        public ActionResult BiddingQuiz()
+        {
+            return View();
+        }
+        
+
 
     }
 

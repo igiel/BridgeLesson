@@ -5,12 +5,12 @@
             <h1>Bidding system lesson</h1>
             <p class="lead">This site would help you improve your bidding system</p>
         </div>
-        <div ng-controller="BiddingSystemController as biddingCtrl">
+        <div ng-controller="BiddingQuizController as biddingCtrl">
             <bidding-quiz ng-hide="biddingCtrl.allProblemsSolved"></bidding-quiz>
             <div ng-show="biddingCtrl.allProblemsSolved">
                 <bidding-quiz-results></bidding-quiz-results>
-                <a href="@Url.Action("BiddingLesson")" class="btn btn-primary">Restart quiz</a>
-                <a href="@Url.Action("Index")" class="btn btn-primary">Back to main page</a>
+                <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary">Restart quiz</a>
+                <a href="@Url.Action("BiddingLesson")" class="btn btn-primary">Back to bidding page</a>
             </div>
         </div>
     </div>

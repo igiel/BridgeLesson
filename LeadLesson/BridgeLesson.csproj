@@ -234,6 +234,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\controllers\BiddingQuizController.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
     <Content Include="Scripts\app\directives.js" />
@@ -1102,9 +1103,10 @@
     <Content Include="Scripts\angular\version.json" />
     <Content Include="Views\LeadLesson\Index.cshtml" />
     <Content Include="Views\BiddingSystem\Index.cshtml" />
-    <Content Include="Views\Home\BiddingLesson.cshtml" />
-    <Content Include="Views\Home\LeadingLesson.cshtml" />
     <Content Include="Views\Home\BiddingQuiz.cshtml" />
+    <Content Include="Views\Home\LeadingLesson.cshtml" />
+    <Content Include="Views\Home\BiddingLesson.cshtml" />
+    <Content Include="Views\Home\ManageBiddingSystem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
