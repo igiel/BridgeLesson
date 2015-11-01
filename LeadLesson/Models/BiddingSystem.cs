@@ -8,6 +8,6 @@ namespace LeadLesson.Models
         [Key]
         public long Id { get; set; }
 
-        public virtual IList<BiddingSequence> BiddingSequences { get; set; }
+        //public virtual IList<BiddingSequence> BiddingSequences { get; set; }
     }
 }
