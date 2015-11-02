@@ -10,6 +10,9 @@ namespace LeadLesson.Models
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<BridgeLessonDbContext, Configuration>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<BridgeLessonDbContext>());
+
+            //this.Configuration.LazyLoadingEnabled = false;
+            //this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<BiddingSequence> BiddingSequences  { get; set; }

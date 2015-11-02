@@ -9,12 +9,16 @@
 
             //Bidding format:
             //{ sequence: 'N:pass;E:1H;S:1P;N:1NT', answer: '7-9 with stopper' }
-            dataFactory.getBiddingSystem = function () {
-                return $http.get(biddingSequenceUrlBase);
+            dataFactory.getBiddingSystems = function () {
+                return $http.get(biddingSystemUrlBase);
             };
 
             dataFactory.addBiddingSequence = function (newBiddingSequence) {
                 return $http.post(biddingSequenceUrlBase, newBiddingSequence);
+            };
+
+            dataFactory.getBiddingSystem = function (systemId) {
+                return $http.get(biddingSystemUrlBase+systemId);
             };
 
             return dataFactory;

@@ -4,8 +4,8 @@
     <ul class="col-md-12" ng-repeat="problem in biddingCtrl.biddingExamples | startFrom:biddingCtrl.currentProblem | limitTo:1">
         <li class="list-group-item">
             <div class="row container-fluid">
-                <div class="col-sm-6"><span ng-bind-html="problem.sequence | bidding"></span></div>
-                <div class="col-sm-6" ng-show="biddingCtrl.isChecked">{{problem.answer}}</div>
+                <div class="col-sm-6"><span ng-bind-html="problem.Sequence | bidding"></span></div>
+                <div class="col-sm-6" ng-show="biddingCtrl.isChecked">{{problem.Answer}}</div>
             </div>
         </li>
     </ul>
