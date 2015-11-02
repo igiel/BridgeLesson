@@ -1,41 +1,52 @@
-﻿using System.Web.Http;
+﻿using LeadLesson.Models;
+using System.Web.Http;
 
 namespace LeadLesson.Controllers
 {
     public class BiddingSystemController : ApiController
     {
-        private static readonly BiddingRepository biddingRepository = new BiddingRepository();
+        private readonly BiddingRepository biddingRepository = new BiddingRepository();
 
         // GET: api/BiddingSystem
         public IHttpActionResult Get()
         {
-            var biddingSequences = biddingRepository.GetBiddingSequences();
+            var biddingSequences = biddingRepository.GetBiddingSystems();
             return Ok(biddingSequences);
         }
 
         // GET: api/BiddingSystem/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var biddingSequences = this.biddingRepository.GetBiddingSequencesBySystem(id);
+            return Ok(biddingSequences);
         }
 
         // POST: api/BiddingSystem
-        public void Post([FromBody]BiddingSequence biddingSequence)
+        public BiddingSystem Post([FromBody]BiddingSystem biddingSystem)
         {
-            biddingRepository.AddBiddingSequence(biddingSequence);
+            return biddingRepository.CreateBiddingSystem(biddingSystem);
         }
 
         // PUT: api/BiddingSystem/5
-        public void Put(int id, [FromBody]BiddingSequence biddingSequence)
+        public BiddingSystem Put(int id, [FromBody]BiddingSystem biddingSystem)
         {
-            biddingRepository.AddBiddingSequence(biddingSequence);
+            return biddingRepository.CreateBiddingSystem(biddingSystem);
         }
 
         // DELETE: api/BiddingSystem/5
         public void Delete(int id)
         {
+
         }
 
-       
+        public void AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
+        {
+            this.biddingRepository.AddBiddingSequenceToSystem(biddingSystemId, biddingSequenceId);
+        }
+        public void RemoveBiddingSequenceFromSystem(long biddingSystemId, long biddingSequenceId)
+        {
+            this.biddingRepository.RemoveBiddingSequence(biddingSystemId, biddingSequenceId);
+        }
+
     }
 }

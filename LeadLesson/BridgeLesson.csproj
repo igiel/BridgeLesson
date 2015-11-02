@@ -204,10 +204,12 @@
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Controllers\BiddingSequenceController.cs" />
     <Compile Include="Migrations\201510312051420_initialSchema.cs" />
     <Compile Include="Migrations\201510312051420_initialSchema.Designer.cs">
       <DependentUpon>201510312051420_initialSchema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BiddingSequence.cs" />
     <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
@@ -229,6 +231,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BiddingSystemSequence.cs" />
     <Compile Include="Models\BiddingSystem.cs" />
     <Compile Include="Models\BridgeLessonDbContext.cs" />
     <Compile Include="Models\Configuration.cs" />
@@ -1069,6 +1072,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\tests\tests.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />

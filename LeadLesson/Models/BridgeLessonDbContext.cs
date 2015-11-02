@@ -13,6 +13,7 @@ namespace LeadLesson.Models
         }
 
         public DbSet<BiddingSequence> BiddingSequences  { get; set; }
-        public DbSet<BiddingSystem> BiddingSystem { get; set; }
+        public DbSet<BiddingSystem> BiddingSystems { get; set; }
+        public DbSet<BiddingSystemSequence> BiddingSystemSequences { get; set; }
     }
 }

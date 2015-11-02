@@ -13,26 +13,57 @@ namespace LeadLesson.Controllers
             db = new BridgeLessonDbContext();
         }
 
-
-        //private readonly IList<BiddingSequence> biddingSequences = new List<BiddingSequence>
-        //    {
-        //        new BiddingSequence("N:pass;E:1H;S:1P;N:1NT","7-9 with stopper"),
-        //        new BiddingSequence("N:1H;E:dbl;S:2NT","10-12 4+ H!"),
-        //        new BiddingSequence("N:pass;E:1H;S:1P;N:1NT;E:2C!;S:2D!","7-9 without stopper"),
-        //    };
-
         public IList<BiddingSequence> GetBiddingSequences()
         {
             return db.BiddingSequences.ToList();
-            //return this.biddingSequences;
         }
 
-        public void AddBiddingSequence(BiddingSequence biddingSequence)
+        public IList<BiddingSystem> GetBiddingSystems()
+        {
+            return db.BiddingSystems.ToList();
+        }
+
+        public IList<BiddingSequence> GetBiddingSequencesBySystem(long biddingSystemId)
+        {
+            var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
+            if (biddingSystem == null)
+                throw new System.ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
+            return biddingSystem.BiddingSystemSequences.Select(bss => bss.BiddingSequence).ToList();
+        }
+
+        public void AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
+        {
+            var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
+            if (biddingSystem == null)
+                throw new System.ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
+
+            biddingSystem.AddBiddingSequence(db.BiddingSequences.Find(biddingSequenceId));
+            db.SaveChanges();
+        }
+
+        public void RemoveBiddingSequence(long biddingSystemId, long biddingSequenceId)
+        {
+            var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
+            if (biddingSystem == null)
+                throw new System.ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
+
+            biddingSystem.RemoveBiddingSequence(biddingSequenceId);
+            db.SaveChanges();
+        }
+
+
+        public BiddingSequence CreateBiddingSequence(BiddingSequence biddingSequence)
         {
             db.BiddingSequences.Add(biddingSequence);
             db.SaveChanges();
-            //this.biddingSequences.Add(biddingSequence);
+            return biddingSequence;
         }
-        
+
+        public BiddingSystem CreateBiddingSystem(BiddingSystem biddingSystem)
+        {
+            db.BiddingSystems.Add(biddingSystem);
+            db.SaveChanges();
+            return biddingSystem;
+        }
     }
 }
