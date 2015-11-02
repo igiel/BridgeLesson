@@ -7,13 +7,13 @@ namespace LeadLesson.Models
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialSchema : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialSchema));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201511021132158_initialSchema"; }
+            get { return "201511021206358_initial"; }
         }
         
         string IMigrationMetadata.Source
