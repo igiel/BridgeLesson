@@ -2,18 +2,19 @@
     angular.module('BridgeLessonModule').factory('biddingSystemService', ['$http',
         function biddingSystemFactory($http) {
 
-            var urlBase = '/api/BiddingSystem/';
+            var biddingSystemUrlBase = '/api/BiddingSystem/';
+            var biddingSequenceUrlBase = '/api/BiddingSequence/';
 
             var dataFactory = {};
 
             //Bidding format:
             //{ sequence: 'N:pass;E:1H;S:1P;N:1NT', answer: '7-9 with stopper' }
             dataFactory.getBiddingSystem = function () {
-                return $http.get(urlBase);
+                return $http.get(biddingSequenceUrlBase);
             };
 
             dataFactory.addBiddingSequence = function (newBiddingSequence) {
-                return $http.post(urlBase, newBiddingSequence);
+                return $http.post(biddingSequenceUrlBase, newBiddingSequence);
             };
 
             return dataFactory;

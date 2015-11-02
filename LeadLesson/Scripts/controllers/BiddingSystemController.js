@@ -17,8 +17,8 @@
         biddingCtrl.submit = function () {
             var biddingSequence = { sequence: biddingCtrl.newSequence, answer: biddingCtrl.newAnswer };
             biddingSystemService.addBiddingSequence(biddingSequence)
-            .then(function (sequences) {
-                biddingCtrl.biddingExamples.push(biddingSequence);
+            .then(function (savedBiddingSequencedata) {
+                biddingCtrl.biddingExamples.push(savedBiddingSequence.data);
                 biddingCtrl.newSequence = '';
                 biddingCtrl.newAnswer = '';
             });

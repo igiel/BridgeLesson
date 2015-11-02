@@ -13,7 +13,7 @@ namespace LeadLesson.Models
         
         string IMigrationMetadata.Id
         {
-            get { return "201510312051420_initialSchema"; }
+            get { return "201511021132158_initialSchema"; }
         }
         
         string IMigrationMetadata.Source
