@@ -14,7 +14,7 @@
             </select>
             <div>
                 <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd"
-                        ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.allBiddingExamples track by newBiddingSequence.Id">
+                        ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
                     <option value="">Choose sequence to add</option>
                 </select>
                 <button type="button" class="btn btn-success" ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">Add sequence to system</button>
