@@ -21,6 +21,18 @@
                 return $http.get(biddingSystemUrlBase+systemId);
             };
 
+            dataFactory.getBiddingSequences = function () {
+                return $http.get(biddingSequenceUrlBase);
+            };
+
+            dataFactory.addBiddingSequence = function (biddingSystemIdValue, biddingSequenceIdValue) {
+                return $http({
+                    method: 'PUT',
+                    url: biddingSystemUrlBase + 'AddBiddingSequenceToSystem/' + biddingSystemIdValue + '/' + biddingSequenceIdValue
+                    //data: { biddingSystemId: biddingSystemIdValue, biddingSequenceId: biddingSequenceIdValue }
+                });
+            };
+
             return dataFactory;
             //return $http({
             //    url: '/api/BiddingSystem',

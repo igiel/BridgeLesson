@@ -7,17 +7,18 @@
         </div>
         <div ng-controller="BiddingSystemController as biddingSystemCtrl">
 
-            @*<select name="systemSelect" id="systemSelect" 
-                    ng-model="biddingSystemCtrl.selectedSystemId" ng-change="biddingSystemCtrl.updateSystem()">
-                <option value="">Choose system</option>
-                <option ng-repeat="system in biddingSystemCtrl.allSystems" value="{{system}}">{{system.Name}}</option>
-                <option value="">Choose system from many</option>
-            </select>*@
-            <select name="" id=""
-                    ng-model="biddingSystemCtrl.selectedSystem" ng-change="biddingSystemCtrl.updateSystem()"
+            <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" 
+                    ng-change="biddingSystemCtrl.updateSystem()"
                 ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
                 <option value="">Choose system</option>
             </select>
+            <div>
+                <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd"
+                        ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.allBiddingExamples track by newBiddingSequence.Id">
+                    <option value="">Choose sequence to add</option>
+                </select>
+                <button type="button" class="btn btn-success" ng-click="biddingSystemCtrl.addSequenceToSystem()">Add sequence to system</button>
+            </div>
             <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.submit()">
                 <p>Add your new sequence</p>
                 <div class="form-group">
@@ -33,7 +34,6 @@
                     </label>
                 </div>
                 <button type="submit" class="btn btn-success">Add new sequence!</button>
-
             </form>
 
             <ul class="col-md-12">

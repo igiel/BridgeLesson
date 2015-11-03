@@ -39,10 +39,15 @@ namespace LeadLesson.Controllers
 
         }
 
+        [HttpPut]
+        [Route("api/BiddingSystem/AddBiddingSequenceToSystem/{biddingSystemId}/{biddingSequenceId}")]
         public void AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
         {
             this.biddingRepository.AddBiddingSequenceToSystem(biddingSystemId, biddingSequenceId);
         }
+
+        [HttpDelete]
+        [Route("api/BiddingSystem/RemoveBiddingSequenceFromSystem/{biddingSystemId}/{biddingSequenceId}")]
         public void RemoveBiddingSequenceFromSystem(long biddingSystemId, long biddingSequenceId)
         {
             this.biddingRepository.RemoveBiddingSequence(biddingSystemId, biddingSequenceId);

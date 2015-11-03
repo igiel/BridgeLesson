@@ -21,11 +21,17 @@
                 return;
             }
 
-            biddingSystemService.getBiddingSystem(biddingSystemCtrl.selectedSystem.Id)
+        biddingSystemService.getBiddingSystem(biddingSystemCtrl.selectedSystem.Id)
             .then(function (sequences) {
                 biddingSystemCtrl.biddingExamples = sequences.data;
             })
         };
+
+        biddingSystemService.getBiddingSequences()
+            .then(function (sequences) {
+                biddingSystemCtrl.allBiddingExamples = sequences.data;
+            });
+        
 
           
         biddingSystemCtrl.submit = function () {
@@ -38,6 +44,22 @@
             });
         };
 
+        biddingSystemCtrl.displayName = function (biddingSequence) {
+            if (biddingSequence == undefined)
+                return "";
+            return (biddingSequence.Sequence + " -> " + biddingSequence.Answer)
+        }
+
+        biddingSystemCtrl.addSequenceToSystem = function () {
+            if (biddingSystemCtrl.selectedBiddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
+                return;
+            biddingSystemService.addBiddingSequence(biddingSystemCtrl.selectedSystem.Id, biddingSystemCtrl.selectedBiddingSequenceToAdd.Id)
+                .then(function (success)
+                {
+                    biddingSystemCtrl.biddingExamples.push(biddingSystemCtrl.selectedBiddingSequenceToAdd);
+                    biddingSystemCtrl.selectedBiddingSequenceToAdd = "";
+                });
+        }
     };
 
     BiddingSystemController.$inject = ['biddingSystemService'];
