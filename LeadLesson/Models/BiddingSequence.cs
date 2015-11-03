@@ -1,5 +1,8 @@
-﻿namespace LeadLesson.Models
+﻿using System.Diagnostics;
+
+namespace LeadLesson.Models
 {
+    [DebuggerDisplay("Sequence = {Sequence}, Answer = {Answer}")]
     public class BiddingSequence : BaseEntity
     {
         public string Sequence { get; set; }

@@ -1,5 +1,8 @@
-﻿namespace LeadLesson.Models
+﻿using System.Diagnostics;
+
+namespace LeadLesson.Models
 {
+    [DebuggerDisplay("BiddingSystem = {BiddingSystem}, BiddingSequence={BiddingSequence}")]
     public class BiddingSystemSequence : BaseEntity
     {      
         public virtual BiddingSystem BiddingSystem{ get; set; }

@@ -22,9 +22,10 @@ namespace LeadLesson.Controllers
         }
 
         // POST: api/BiddingSystem
-        public BiddingSystem Post([FromBody]BiddingSystem biddingSystem)
+        [Route("api/BiddingSystem/{systemToCopyId}")]
+        public BiddingSystem Post([FromBody]BiddingSystem biddingSystem, int? systemToCopyId = null)
         {
-            return biddingRepository.CreateBiddingSystem(biddingSystem);
+            return biddingRepository.CreateBiddingSystem(biddingSystem, systemToCopyId);
         }
 
         // PUT: api/BiddingSystem/5

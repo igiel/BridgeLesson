@@ -73,9 +73,18 @@ namespace LeadLesson.Controllers
             return biddingSequence;
         }
 
-        public BiddingSystem CreateBiddingSystem(BiddingSystem biddingSystem)
+        public BiddingSystem CreateBiddingSystem(BiddingSystem biddingSystem, int? systemToCopyId = null)
         {
             db.BiddingSystems.Add(biddingSystem);
+            if (systemToCopyId.HasValue)
+            {
+                var systemToCopy = db.BiddingSystems.Find(systemToCopyId.Value);
+                foreach (var bss in systemToCopy.BiddingSystemSequences)
+                {
+                    biddingSystem.AddBiddingSequence(bss.BiddingSequence);
+                } 
+            }
+
             db.SaveChanges();
             return biddingSystem;
         }

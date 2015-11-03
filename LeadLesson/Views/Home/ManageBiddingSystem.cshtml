@@ -6,45 +6,74 @@
             <p class="lead">This site would help you improve your bidding system</p>
         </div>
         <div ng-controller="BiddingSystemController as biddingSystemCtrl">
-
-            <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" 
-                    ng-change="biddingSystemCtrl.updateSystem()"
-                ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
-                <option value="">Choose system</option>
-            </select>
-            <div>
-                <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd"
-                        ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
-                    <option value="">Choose sequence to add</option>
+            <div class="well">
+                <span>Please select system:</span>
+                <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem"
+                        ng-change="biddingSystemCtrl.updateSystem()"
+                        ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
+                    <option value="">Choose system</option>
                 </select>
-                <button type="button" class="btn btn-success" ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">Add sequence to system</button>
-            </div>
-            <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.submit()">
-                <p>Add your new sequence</p>
-                <div class="form-group">
-                    <label>
-                        Sequence:
-                        <input type="text" class="form-control" id="sequence" name="sequence" ng-model="biddingSystemCtrl.newSequence" required />
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label>
-                        Meaning:
-                        <input type="text" class="form-control" id="answer" name="answer" ng-model="biddingSystemCtrl.newAnswer" required />
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-success">Add new sequence!</button>
-            </form>
-
-            <ul class="col-md-12">
-                <li class="list-group-item" ng-repeat="problem in biddingSystemCtrl.biddingExamples">
-                    <div class="row container-fluid">
-                        <div class="col-xs-4"><span ng-bind-html="problem.Sequence | bidding"></span></div>
-                        <div class="col-xs-4">{{problem.Answer}}</div>
-                        <div class="col-xs-4"><span ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(problem)" class="glyphicon glyphicon-remove" ></span></div>
+                <a class="btn btn-success" data-toggle="modal" data-target="#addNewSystemForm"><span class="glyphicon glyphicon-plus"></span> Create new system</a>
+                    <div class="modal fade addNewSystemForm" tabindex="-1" role="dialog" aria-labelledby="addNewSystemForm" aria-hidden="true" id="addNewSystemForm">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add new bidding system</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>You can create empty bidding system or use current one as a prototype</p>
+                                    <input type="text" ng-model="biddingSystemCtrl.newSystem.Name" class="form-control" />
+                                    <select name="" id="" ng-model="biddingSystemCtrl.selectedPrototypeOfNewSystem"
+                                            ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
+                                        <option value="">Create empty</option>
+                                    </select>
+                                    <a class="btn btn-success" data-dismiss="modal" ng-click="biddingSystemCtrl.CreateBiddingSystem()" ng-disabled="!biddingSystemCtrl.newSystem.Name"><span class="glyphicon glyphicon-plus"></span> Create new system</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </li>
-            </ul>
+
+                    <div ng-if="biddingSystemCtrl.selectedSystem != undefined">{{biddingSystemCtrl.selectedSystem.Description}}</div>
+                </div>
+            <div ng-if="biddingSystemCtrl.selectedSystem != undefined"> 
+                <div>
+                    <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd"
+                            ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
+                        <option value="">Choose sequence to add</option>
+                    </select>
+                    <button type="button" class="btn btn-success" ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">Add sequence to system</button>
+                </div>
+                <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.submit()">
+                    <p>Add your new sequence</p>
+                    <div class="form-group">
+                        <label>
+                            Sequence:
+                            <input type="text" class="form-control" id="sequence" name="sequence" ng-model="biddingSystemCtrl.newSequence" required />
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Meaning:
+                            <input type="text" class="form-control" id="answer" name="answer" ng-model="biddingSystemCtrl.newAnswer" required />
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add new sequence!</button>
+                </form>
+
+                <ul class="col-md-12">
+                    <li class="list-group-item" ng-repeat="problem in biddingSystemCtrl.biddingExamples">
+                        <div class="row container-fluid">
+                            <div class="col-xs-4"><span ng-bind-html="problem.Sequence | bidding"></span></div>
+                            <div class="col-xs-4">{{problem.Answer}}</div>
+                            <div class="col-xs-4"><span ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(problem)" class="glyphicon glyphicon-remove"></span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary">Start quiz</a>
             <a href="@Url.Action("Index")" class="btn btn-primary">Back to main</a>
         </div>

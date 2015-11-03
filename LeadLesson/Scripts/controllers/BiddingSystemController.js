@@ -85,6 +85,13 @@
                     biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
                 });
         }
+
+        biddingSystemCtrl.CreateBiddingSystem = function () {
+            biddingSystemService.CreateBiddingSystem(biddingSystemCtrl.newSystem, biddingSystemCtrl.selectedPrototypeOfNewSystem)
+                .then(function (newSystemResponse) {
+                    biddingSystemCtrl.allSystems.push(newSystemResponse.data);
+                })
+        };
     };
 
     BiddingSystemController.$inject = ['biddingSystemService'];

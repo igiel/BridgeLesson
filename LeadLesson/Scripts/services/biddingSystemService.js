@@ -39,6 +39,13 @@
                 });
             };
 
+            dataFactory.CreateBiddingSystem = function (biddingSystem, systemToCopy) {
+                var systemToCopyId = systemToCopy ? systemToCopy.Id : null;
+                return $http.post(
+                    biddingSystemUrlBase + systemToCopyId,  biddingSystem
+                );
+            };
+
             return dataFactory;
             //return $http({
             //    url: '/api/BiddingSystem',

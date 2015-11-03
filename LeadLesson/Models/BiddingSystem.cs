@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace LeadLesson.Models
 {
+    [DebuggerDisplay("Name = {Name}, BiddingSystemSequences = {BiddingSystemSequences.Count}")]
     public class BiddingSystem : BaseEntity
     {
         public string Name { get; set; }
@@ -11,6 +13,8 @@ namespace LeadLesson.Models
               
         public void AddBiddingSequence(BiddingSequence biddingSequence)
         {
+            if (this.BiddingSystemSequences == null)
+                this.BiddingSystemSequences = new List<BiddingSystemSequence>();
             this.BiddingSystemSequences.Add(new BiddingSystemSequence(this, biddingSequence));
         }
 
