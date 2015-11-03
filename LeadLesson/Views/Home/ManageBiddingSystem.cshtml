@@ -41,6 +41,7 @@
                     <div class="row container-fluid">
                         <div class="col-xs-4"><span ng-bind-html="problem.Sequence | bidding"></span></div>
                         <div class="col-xs-4">{{problem.Answer}}</div>
+                        <div class="col-xs-4"><span ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(problem)" class="glyphicon glyphicon-remove" ></span></div>
                     </div>
                 </li>
             </ul>

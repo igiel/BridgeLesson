@@ -25,11 +25,17 @@
                 return $http.get(biddingSequenceUrlBase);
             };
 
-            dataFactory.addBiddingSequenceToSystem = function (biddingSystemIdValue, biddingSequenceIdValue) {
+            dataFactory.addBiddingSequenceToSystem = function (biddingSystemId, biddingSequenceId) {
                 return $http({
                     method: 'PUT',
-                    url: biddingSystemUrlBase + 'AddBiddingSequenceToSystem/' + biddingSystemIdValue + '/' + biddingSequenceIdValue
-                    //data: { biddingSystemId: biddingSystemIdValue, biddingSequenceId: biddingSequenceIdValue }
+                    url: biddingSystemUrlBase + 'AddBiddingSequenceToSystem/' + biddingSystemId + '/' + biddingSequenceId
+                });
+            };
+
+            dataFactory.removeBiddingSequenceFromSystem = function (biddingSystemId, biddingSequenceId) {
+                return $http({
+                    method: 'DELETE',
+                    url: biddingSystemUrlBase + 'RemoveBiddingSequenceFromSystem/' + biddingSystemId + '/' + biddingSequenceId
                 });
             };
 

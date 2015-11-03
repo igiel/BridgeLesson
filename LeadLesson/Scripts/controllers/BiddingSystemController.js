@@ -65,6 +65,18 @@
                     biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
                 });
         }
+
+        biddingSystemCtrl.removeBiddingSequenceFromSystem = function (biddingSequenceToRemove) {
+            if (biddingSequenceToRemove == undefined || biddingSystemCtrl.selectedSystem == undefined)
+                return;
+            biddingSystemService.removeBiddingSequenceFromSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToRemove.Id)
+                .then(function (success) {
+                    var indexToRemove = biddingSystemCtrl.biddingExamples.indexOf(biddingSequenceToRemove);
+                    if (indexToRemove > -1)
+                        biddingSystemCtrl.biddingExamples.splice(indexToRemove, 1);
+                    //biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
+                });
+        }
     };
 
     BiddingSystemController.$inject = ['biddingSystemService'];
