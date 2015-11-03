@@ -25,7 +25,7 @@
                 return $http.get(biddingSequenceUrlBase);
             };
 
-            dataFactory.addBiddingSequence = function (biddingSystemIdValue, biddingSequenceIdValue) {
+            dataFactory.addBiddingSequenceToSystem = function (biddingSystemIdValue, biddingSequenceIdValue) {
                 return $http({
                     method: 'PUT',
                     url: biddingSystemUrlBase + 'AddBiddingSequenceToSystem/' + biddingSystemIdValue + '/' + biddingSequenceIdValue

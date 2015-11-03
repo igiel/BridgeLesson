@@ -35,12 +35,17 @@
 
           
         biddingSystemCtrl.submit = function () {
-            var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer };
+            var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer};
             biddingSystemService.addBiddingSequence(biddingSequence)
             .then(function (savedBiddingSequence) {
-                biddingSystemCtrl.biddingExamples.push(savedBiddingSequence.data);
                 biddingSystemCtrl.newSequence = '';
                 biddingSystemCtrl.newAnswer = '';
+                var selectedSystemId = biddingSystemCtrl.selectedSystem != undefined ? biddingSystemCtrl.selectedSystem.Id : null;
+                if (selectedSystemId == undefined)
+                    biddingSystemCtrl.allBiddingExamples.push(savedBiddingSequence.data);
+                else
+                    biddingSystemCtrl.addSequenceToSystem(savedBiddingSequence.data);
+               
             });
         };
 
@@ -50,14 +55,14 @@
             return (biddingSequence.Sequence + " -> " + biddingSequence.Answer)
         }
 
-        biddingSystemCtrl.addSequenceToSystem = function () {
-            if (biddingSystemCtrl.selectedBiddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
+        biddingSystemCtrl.addSequenceToSystem = function (biddingSequenceToAdd) {
+            if (biddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
                 return;
-            biddingSystemService.addBiddingSequence(biddingSystemCtrl.selectedSystem.Id, biddingSystemCtrl.selectedBiddingSequenceToAdd.Id)
+            biddingSystemService.addBiddingSequenceToSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToAdd.Id)
                 .then(function (success)
                 {
-                    biddingSystemCtrl.biddingExamples.push(biddingSystemCtrl.selectedBiddingSequenceToAdd);
-                    biddingSystemCtrl.selectedBiddingSequenceToAdd = "";
+                    biddingSystemCtrl.biddingExamples.push(biddingSequenceToAdd);
+                    biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
                 });
         }
     };

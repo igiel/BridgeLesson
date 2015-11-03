@@ -15,15 +15,17 @@ namespace LeadLesson.Controllers
         }
 
         // GET: api/BiddingSequence/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var biddingSequence = biddingRepository.GetBiddingSequence(id);
+            return Ok(biddingSequence);
         }
 
         // POST: api/BiddingSequence
-        public BiddingSequence Post([FromBody]BiddingSequence biddingSequence)
+        public IHttpActionResult Post([FromBody]BiddingSequence biddingSequence)
         {
-            return biddingRepository.CreateBiddingSequence(biddingSequence);
+            var biddingSystem = biddingRepository.CreateBiddingSequence(biddingSequence);
+            return Ok(biddingSystem);
         }
 
         // PUT: api/BiddingSequence/5
