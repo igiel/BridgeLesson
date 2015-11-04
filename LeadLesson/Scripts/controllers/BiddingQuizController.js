@@ -7,19 +7,25 @@
 
         //NESW
         //in answer bbo tokens for color symbols should be converted from S!,H!,C!,D! 
-        
-        biddingSystemService.getBiddingSystem()
-            .then(function (sequences) {
-                biddingCtrl.biddingExamples = sequences.data;
+        biddingSystemService.getBiddingSystems()
+            .then(function (allSystems) {
+                biddingCtrl.allSystems = allSystems.data;
             });
 
+        biddingCtrl.updateSystem = function () {
+            if (biddingCtrl.selectedSystem == undefined) {
+                biddingCtrl.biddingExamples = null;
+                return;
+            }
+
+            biddingSystemService.getBiddingSystem(biddingCtrl.selectedSystem.Id)
+                .then(function (sequences) {
+                    biddingCtrl.biddingExamples = sequences.data;
+                    resetValues();
+                })
+        };
           
-        biddingCtrl.canProceedFurther = false;
-        biddingCtrl.canProceedBack = false;
-        biddingCtrl.currentProblem = 0;
-        biddingCtrl.isChecked = false;
-        biddingCtrl.correctAnswerQuestionIsVisible = false;
-        biddingCtrl.submitButtonIsVisible = true;
+        resetValues();
         
         biddingCtrl.submit = function () {
             biddingCtrl.correctAnswerQuestionIsVisible = true;
@@ -67,8 +73,20 @@
             biddingCtrl.allProblemsSolved = isLastProblem();
         }
 
+        function resetValues() {
+            biddingCtrl.canProceedFurther = false;
+            biddingCtrl.canProceedBack = false;
+            biddingCtrl.currentProblem = 0;
+            biddingCtrl.isChecked = false;
+            biddingCtrl.correctAnswerQuestionIsVisible = false;
+            biddingCtrl.submitButtonIsVisible = true;
+            biddingCtrl.allProblemsSolved = isLastProblem();
+        }
+
         function isLastProblem()
         {
+            if (biddingCtrl.biddingExamples == undefined)
+                return false;
             return biddingCtrl.currentProblem >= biddingCtrl.biddingExamples.length;
         }
 
