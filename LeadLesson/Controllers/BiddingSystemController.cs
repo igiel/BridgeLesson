@@ -14,6 +14,8 @@ namespace LeadLesson.Controllers
             return Ok(biddingSequences);
         }
 
+        [HttpGet]
+        [Route("api/BiddingSystem/{id}")]
         // GET: api/BiddingSystem/5
         public IHttpActionResult Get(int id)
         {
@@ -22,6 +24,7 @@ namespace LeadLesson.Controllers
         }
 
         // POST: api/BiddingSystem
+        [HttpPost]
         [Route("api/BiddingSystem/{systemToCopyId}")]
         public BiddingSystem Post([FromBody]BiddingSystem biddingSystem, int? systemToCopyId = null)
         {
