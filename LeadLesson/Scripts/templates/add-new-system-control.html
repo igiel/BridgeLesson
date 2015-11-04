@@ -1,0 +1,33 @@
+﻿<a class="btn btn-link" data-toggle="modal" data-target="#addNewSystemForm"><span class="glyphicon glyphicon-plus"></span> Create new system</a>
+<div class="modal fade addNewSystemForm" tabindex="-1" role="dialog" aria-labelledby="addNewSystemForm" aria-hidden="true" id="addNewSystemForm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add new bidding system</h4>
+            </div>
+            <div class="modal-body">
+                <p>You can create empty bidding system or use current one as a prototype</p>
+                <label>
+                    System name:
+                    <input type="text" ng-model="biddingSystemCtrl.newSystem.Name" class="form-control" />
+                </label>
+                <label>
+                    Copy sequences from:
+                    <select name="" id="" class="form-control" ng-model="biddingSystemCtrl.selectedPrototypeOfNewSystem"
+                            ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
+                        <option value="">Create empty</option>
+                    </select>
+                </label>
+                <label>
+                    You can provide short system description:
+                    <textarea ng-model="biddingSystemCtrl.newSystem.Description" class="form-control"></textarea>
+                </label>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success" data-dismiss="modal" ng-click="biddingSystemCtrl.CreateBiddingSystem()" ng-disabled="!biddingSystemCtrl.newSystem.Name"><span class="glyphicon glyphicon-plus"></span> Create new system</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

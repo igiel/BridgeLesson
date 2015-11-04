@@ -284,6 +284,7 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\templates\add-new-system-control.html" />
     <Content Include="Scripts\templates\bidding-quiz-results.html" />
     <Content Include="Scripts\templates\bidding-quiz.html" />
     <Content Include="Scripts\controllers\BiddingSystemController.js" />
