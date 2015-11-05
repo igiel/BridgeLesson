@@ -14,13 +14,17 @@
         }
     });
 
+    var club_icon = '<img src="/Content/img/club-icon.png" />';
+    var heart_icon = '<img src="/Content/img/heart-icon.png" />';
+    var spade_icon = '<img src="/Content/img/spade-icon.png" />';
+    var diamond_icon = '<img src="/Content/img/diamond-icon.png" />';
     //todo: directive and div xs-3 per each row?
     //format: 'N:1H;E:dbl,S:2NT'
     angular.module('BridgeLessonModule').filter('bidding', ['$sce',function ($sce) {
         return function (text) {
             if (!text)
                 return text;
-
+            text = replaceBidsOnPictures(text);
             var bids = text.split(';');
             var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
             for (var i = 0; i < bids.length; i++) {
@@ -34,5 +38,16 @@
             return $sce.trustAsHtml(result); 
         };
     }]);
+
+    function replaceBidsOnPictures(text) {
+        var a = text.replace(new RegExp('H!', 'g'), heart_icon).replace(new RegExp('C!', 'g'), club_icon);
+        var c  = a.replace(new RegExp('S!', 'g'), spade_icon);
+        return c.replace(new RegExp('D!', 'g'), diamond_icon);
+    }
+
+    function replaceAll(str, find, replace) {
+        return str.replace(new RegExp(find, 'g'), replace);
+    }
+
 }());
 

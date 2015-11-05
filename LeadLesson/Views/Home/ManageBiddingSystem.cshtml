@@ -6,6 +6,12 @@
             <p class="lead">This site would help you improve your bidding system</p>
         </div>
         <div ng-controller="BiddingSystemController as biddingSystemCtrl">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="@Url.Action("Index")" class="btn btn-primary">Back to main page</a>
+                    <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary" title="Start quiz with your chosen system!" ng-disabled="!biddingSystemCtrl.selectedSystem">Start quiz!</a>
+                </div>
+            </div>
             <div class="well">
                 <span>Please select system:</span>
                 <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" class="form-control"
@@ -17,46 +23,53 @@
                 <div>
                     <add-new-system-control></add-new-system-control>
                 </div>
-                <div ng-if="biddingSystemCtrl.selectedSystem != undefined">{{biddingSystemCtrl.selectedSystem.Description}}</div>
+                <div ng-if="biddingSystemCtrl.selectedSystem != undefined"> <i>{{biddingSystemCtrl.selectedSystem.Description}}</i></div>
             </div>
             <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div>Add existing sequence:</div>
-                        <label>
-                            Sequence -> Meaning:
-                            <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd" class="form-control"
-                                    ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
-                                <option value="">Choose sequence to add</option>
-                            </select>
-                        </label>
-                        <button type="button" class="btn btn-success" ng-disabled="!biddingSystemCtrl.selectedBiddingSequenceToAdd"
-                                ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">
-                            Add sequence to system
-                        </button>
+                    <ul class="nav nav-tabs list-inline">
+                        <li class="active"><a data-toggle="tab" href="#menu1">Add existing sequence</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Create your new sequence</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="menu1" class="tab-pane fade in active">
+                            <div class="col-md-12">
+                                <label>
+                                    Sequence -> Meaning:
+                                    <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd" class="form-control"
+                                            ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
+                                        <option value="">Choose sequence to add</option>
+                                    </select>
+                                </label>
+                                <button type="button" class="btn btn-success" ng-disabled="!biddingSystemCtrl.selectedBiddingSequenceToAdd"
+                                        ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">
+                                    Add sequence to system
+                                </button>
+                            </div>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <div class="col-md-12">
+                                <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.submit()">
+                                    <label>
+                                        Sequence:
+                                        <input type="text" class="form-control" id="sequence" name="sequence" ng-model="biddingSystemCtrl.newSequence" required />
+                                    </label>
+                                    <label>
+                                        Meaning:
+                                        <input type="text" class="form-control" id="answer" name="answer" ng-model="biddingSystemCtrl.newAnswer" required />
+                                    </label>
+                                    <button type="submit" class="btn btn-success" ng-disabled="!biddingSystemCtrl.newSequence">Create new sequence!</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.submit()">
-                            <div>Create your new sequence:</div>
-                            <label>
-                                Sequence:
-                                <input type="text" class="form-control" id="sequence" name="sequence" ng-model="biddingSystemCtrl.newSequence" required />
-                            </label>
-                            <label>
-                                Meaning:
-                                <input type="text" class="form-control" id="answer" name="answer" ng-model="biddingSystemCtrl.newAnswer" required />
-                            </label>
-                            <button type="submit" class="btn btn-success" ng-disabled="!biddingSystemCtrl.newSequence">Create new sequence!</button>
-                        </form>
-                    </div>
+
+
+
+
                 </div>
                 <br />
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary" title="Start quiz with your chosen system!">Start quiz!</a>
-                        <a href="@Url.Action("Index")" class="btn btn-primary">Back to main page</a>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         Defined sequences that belongs to this system:

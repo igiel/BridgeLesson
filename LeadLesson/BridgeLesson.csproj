@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201511021206358_initial.Designer.cs">
       <DependentUpon>201511021206358_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511041622460_SystemDescriptionFieldAdded.cs" />
+    <Compile Include="Migrations\201511041622460_SystemDescriptionFieldAdded.Designer.cs">
+      <DependentUpon>201511041622460_SystemDescriptionFieldAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BiddingSequence.cs" />
     <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
@@ -245,6 +249,14 @@
     <Compile Include="ViewModels\CreateBiddingSystemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\club-icon.png" />
+    <Content Include="Content\img\club.png" />
+    <Content Include="Content\img\diamond.png" />
+    <Content Include="Content\img\diamonds-icon.png" />
+    <Content Include="Content\img\heart.png" />
+    <Content Include="Content\img\hearts-icon.png" />
+    <Content Include="Content\img\spade-icon.png" />
+    <Content Include="Content\img\spade.png" />
     <Content Include="Scripts\controllers\BiddingQuizController.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
@@ -1135,6 +1147,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511021206358_initial.resx">
       <DependentUpon>201511021206358_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511041622460_SystemDescriptionFieldAdded.resx">
+      <DependentUpon>201511041622460_SystemDescriptionFieldAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

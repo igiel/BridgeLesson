@@ -9,6 +9,8 @@ namespace LeadLesson.Models
     public class BiddingSystem : BaseEntity
     {
         public string Name { get; set; }
+        public string Description{ get; set; }
+
         public virtual IList<BiddingSystemSequence> BiddingSystemSequences { get; set; }
               
         public void AddBiddingSequence(BiddingSequence biddingSequence)
