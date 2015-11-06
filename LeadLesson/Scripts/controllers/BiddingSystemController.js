@@ -19,6 +19,12 @@
                 biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.allBiddingExamples;
              });
         
+        biddingSystemService.getBiddingSystemAsParentChild()
+            .then(function (rootBid) {
+                biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
+            });
+
+        
 
         biddingSystemCtrl.updateSystem = function () {
             if (biddingSystemCtrl.selectedSystem == undefined)

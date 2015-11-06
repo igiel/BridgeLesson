@@ -248,6 +248,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\BiddingConverter.cs" />
     <Compile Include="ViewModels\Bid.cs" />
+    <Compile Include="ViewModels\BiddingSystemGetAsParentChildViewModel.cs" />
     <Compile Include="ViewModels\CreateBiddingSystemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

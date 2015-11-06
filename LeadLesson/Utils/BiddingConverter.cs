@@ -8,7 +8,7 @@ namespace LeadLesson.Utils
 {
     public class BiddingConverter
     {
-        public static IList<Bid> Convert(IList<BiddingSequence> sequences)
+        public static List<Bid> Convert(IList<BiddingSequence> sequences)
         {
             var bidRoot = new Bid(null, null);
 

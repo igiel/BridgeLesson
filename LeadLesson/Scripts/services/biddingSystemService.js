@@ -45,6 +45,11 @@
                     biddingSystemUrlBase + systemToCopyId,  biddingSystem
                 );
             };
+            
+            dataFactory.getBiddingSystemAsParentChild = function (systemId) {
+                return $http.get(biddingSystemUrlBase+'AsParentChild/'+systemId);
+            };
+            
 
             return dataFactory;
             //return $http({

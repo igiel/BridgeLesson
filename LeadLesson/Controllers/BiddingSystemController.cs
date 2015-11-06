@@ -1,4 +1,6 @@
 ﻿using LeadLesson.Models;
+using LeadLesson.Utils;
+using LeadLesson.ViewModels;
 using System.Web.Http;
 
 namespace LeadLesson.Controllers
@@ -23,6 +25,17 @@ namespace LeadLesson.Controllers
             return Ok(biddingSequences);
         }
 
+        [HttpGet]
+        [Route("api/BiddingSystem/AsParentChild/{id}")]
+        // GET: api/BiddingSystem/5
+        public IHttpActionResult GetAsParentChild(int id)
+        {
+            var biddingSequences = this.biddingRepository.GetBiddingSequencesBySystem(id);
+            var rootBid = new Bid(null, null) { NextBids = BiddingConverter.Convert(biddingSequences) };
+            var bidsAsParentChild = new BiddingSystemGetAsParentChildViewModel() { RootBid = rootBid };
+            return Ok(bidsAsParentChild);
+        }
+        
         // POST: api/BiddingSystem
         [HttpPost]
         [Route("api/BiddingSystem/{systemToCopyId}")]
