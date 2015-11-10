@@ -19,13 +19,6 @@
                 biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.allBiddingExamples;
              });
         
-        biddingSystemService.getBiddingSystemAsParentChild()
-            .then(function (rootBid) {
-                biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
-            });
-
-        
-
         biddingSystemCtrl.updateSystem = function () {
             if (biddingSystemCtrl.selectedSystem == undefined)
             {
@@ -37,7 +30,13 @@
                 .then(function (sequences) {
                     biddingSystemCtrl.biddingExamples = sequences.data;
                     biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
-                })
+            })
+
+           biddingSystemService.getBiddingSystemAsParentChild(biddingSystemCtrl.selectedSystem.Id)
+                .then(function (rootBid) {
+                biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
+           });
+
         };
         
         biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem = function () {
