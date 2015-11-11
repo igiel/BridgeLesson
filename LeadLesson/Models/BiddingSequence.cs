@@ -20,5 +20,13 @@ namespace LeadLesson.Models
             this.Answer = answer;
 
         }
+
+        internal void CopyValuesFrom(BiddingSequence seq)
+        {
+            this.Id = seq.Id;
+            this.Answer = seq.Answer;
+            this.Sequence = seq.Sequence;
+            this.CreationDate = seq.CreationDate;
+        }
     }
 }

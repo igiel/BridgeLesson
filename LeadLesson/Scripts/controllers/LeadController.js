@@ -9,8 +9,6 @@
         $scope.currentPage = 0;
         $scope.pageSize = 7;
 
-        $scope.Hometown = 'Unknownhometown';
-
         $scope.LeadDistribution = LeadDistributionDict;
          
         $scope.submit = function () {
@@ -66,16 +64,6 @@
             $scope.canProceedFurther = allExamplesCorrect && $scope.LeadDistribution.length >= endValue;
         }
 
-        $scope.GetHometownFromApi = function () {
-            var hometownResult = $http({
-                method: 'GET',
-                url: 'api/Me'
-            }).then(function successCallback(response) {
-                $scope.Hometown = response.data;
-            }, function errorCallback(response) {
-                $scope.Hometown = "Error on retrieving hometown: " + response.statusText;
-            });
-        }
     };
 
     LeadController.$inject = ['$scope', 'leadExamples', '$http'];

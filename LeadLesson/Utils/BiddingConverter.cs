@@ -2,6 +2,7 @@
 using LeadLesson.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace LeadLesson.Utils
@@ -10,7 +11,12 @@ namespace LeadLesson.Utils
     {
         public static List<Bid> Convert(IList<BiddingSequence> sequences)
         {
-            var bidRoot = new Bid("root", null);
+            return ConvertWithRoot(sequences).NextBids;
+        }
+
+        public static Bid ConvertWithRoot(IList<BiddingSequence> sequences)
+        {
+            var bidRoot = new Bid("root", null, null);
 
             foreach (var seq in sequences)
             {
@@ -21,22 +27,28 @@ namespace LeadLesson.Utils
 
                 var currentBid = bidRoot;
 
+                var wholeSequence = new StringBuilder();
                 foreach (var seqBid in splitedSequences)
                 {
+                    if(wholeSequence.Length>0)
+                        wholeSequence.Append(" ");
+                    wholeSequence.Append(seqBid + ";");
+
                     var nextBid = currentBid.NextBids.FirstOrDefault(cb => cb.BidSymbol == seqBid);
                     if (nextBid == null)
                     {
-                        nextBid = new Bid(seqBid, null);
+                        nextBid = new Bid(seqBid, wholeSequence.ToString());
                         currentBid.NextBids.Add(nextBid);
                     }
                     currentBid = nextBid;
                 }
-                currentBid.Description = seq.Answer;
+
+                currentBid.OriginalObject.CopyValuesFrom(seq);
             }
 
             bidRoot.SortNextBids();
 
-            return bidRoot.NextBids;
+            return bidRoot;
         }
     }
 }

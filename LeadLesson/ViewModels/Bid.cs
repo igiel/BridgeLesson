@@ -1,22 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using LeadLesson.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LeadLesson.ViewModels
 {
     public class Bid
     {
-        public Bid(string bidSymbol, string description)
+        public Bid(string bidSymbol, string bidSequence, BiddingSequence biddingSequence = null)
         {
             this.BidSymbol = bidSymbol;
-            this.Description = description;
+            this.BidSequence = bidSequence;
+            this.OriginalObject = biddingSequence != null ? biddingSequence : new BiddingSequence { Sequence = bidSequence, Id = 0 };
             this.NextBids = new List<Bid>();
         }
 
         public string BidSymbol { get; set; }
 
-        public string Description { get; set; }
-
+        public string BidSequence { get; set; }
+                
         public List<Bid> NextBids { get; set; }
+
+        public BiddingSequence OriginalObject { get; private set; }
 
         public void SortNextBids()
         {
@@ -50,7 +54,7 @@ namespace LeadLesson.ViewModels
 
         public override string ToString()
         {
-            return string.Format("Bid symbol: {0}, Description: {1}", BidSymbol, Description);
+            return string.Format("Bid symbol: {0}, Description: {1}", BidSymbol, this.OriginalObject.Answer);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace LeadLesson.Controllers
         public IHttpActionResult GetAsParentChild(int id)
         {
             var biddingSequences = this.biddingRepository.GetBiddingSequencesBySystem(id);
-            var rootBid = new Bid(null, null) { NextBids = BiddingConverter.Convert(biddingSequences) };
+            var rootBid = BiddingConverter.ConvertWithRoot(biddingSequences);
             var bidsAsParentChild = new BiddingSystemGetAsParentChildViewModel { RootBid = rootBid };
             return Ok(bidsAsParentChild);
         }

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var BiddingSystemController = function (biddingSystemService) {
+    var BiddingSystemController = function ($scope, biddingSystemService) {
 
         var biddingSystemCtrl = this;
 
@@ -46,19 +46,19 @@
         biddingSystemCtrl.submit = function () {
             var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer};
             biddingSystemService.addBiddingSequence(biddingSequence)
-            .then(function (savedBiddingSequence) {
-                biddingSystemCtrl.newSequence = '';
-                biddingSystemCtrl.newAnswer = '';
-                var selectedSystemId = biddingSystemCtrl.selectedSystem != undefined ? biddingSystemCtrl.selectedSystem.Id : null;
-                biddingSystemCtrl.allBiddingExamples.push(savedBiddingSequence.data);
-                if (selectedSystemId == undefined)
-                {
-                    biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
-                }
-                else
-                    biddingSystemCtrl.addSequenceToSystem(savedBiddingSequence.data);
-               
-            });
+                .then(function (savedBiddingSequence) {
+                    biddingSystemCtrl.newSequence = '';
+                    biddingSystemCtrl.newAnswer = '';
+
+                    var selectedSystemId = biddingSystemCtrl.selectedSystem != undefined ? biddingSystemCtrl.selectedSystem.Id : null;
+                    biddingSystemCtrl.allBiddingExamples.push(savedBiddingSequence.data);
+                    if (selectedSystemId == undefined)
+                    {
+                        biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
+                    }
+                    else
+                        biddingSystemCtrl.addSequenceToSystem(savedBiddingSequence.data);
+                });
         };
 
         biddingSystemCtrl.displayName = function (biddingSequence) {
@@ -97,9 +97,21 @@
                     biddingSystemCtrl.allSystems.push(newSystemResponse.data);
                 })
         };
+
+        //biddingSystemCtrl.abc = function (aaa) {
+        //    biddingSystemCtrl.newSequence = aaa;
+        //}
+        //$scope.$watch('biddingSystemTreeView.currentNode', function (newObj, oldObj) {
+        //    biddingSystemCtrl.abc(newObj);
+        //    //if ($scope.biddingSystemTreeView && angular.isObject($scope.biddingSystemTreeView.currentNode)) {
+        //    //    biddingSystemCtrl.newSequence = $scope.biddingSystemTreeView.currentNode.BidSequence;
+        //    //}
+        //}, false);
+
+
     };
 
-    BiddingSystemController.$inject = ['biddingSystemService'];
+    BiddingSystemController.$inject = ['$scope', 'biddingSystemService'];
 
     angular.module('BridgeLessonModule').controller('BiddingSystemController', BiddingSystemController);
 

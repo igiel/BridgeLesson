@@ -26,7 +26,7 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void OneSequence()
         {
-            IList<Bid> expected = new List<Bid>{ new Bid("N:1H", null) };
+            IList<Bid> expected = new List<Bid>{ new Bid("N:1H", null,null) };
 
             IList<BiddingSequence> biddingSequences = new List<BiddingSequence> { new BiddingSequence("N:1H;",null)};
 
@@ -40,8 +40,8 @@ namespace BridgeLesson.Tests
         public void OneSequenceWithTwoBidsShouldReturnNestedBids()
         {
             var description = "5+Spades";
-            var nestedBid = new Bid("E:1S", description);
-            var parentBid = new Bid("N:1H", null);
+            var nestedBid = new Bid("E:1S", null, new BiddingSequence { Answer = description });
+            var parentBid = new Bid("N:1H", null, null);
             parentBid.NextBids.Add(nestedBid);
 
             IList <Bid> expected = new List<Bid> { parentBid};
@@ -60,12 +60,12 @@ namespace BridgeLesson.Tests
         public void TwoSequenceWithDifferentFirstBidsShouldReturnTwoNestedBids()
         {
             var description1 = "5+Spades";
-            var nestedBid1 = new Bid("E:1S", description1);
-            var parentBid1 = new Bid("N:1H", null);
+            var nestedBid1 = new Bid("E:1S", null, new BiddingSequence { Answer = description1 });
+            var parentBid1 = new Bid("N:1H", null, null);
 
             var description2 = "7-9 bal";
-            var nestedBid2 = new Bid("S:1NT", description2);
-            var parentBid2 = new Bid("N:1S", null);
+            var nestedBid2 = new Bid("S:1NT", null, new BiddingSequence { Answer = description2 });
+            var parentBid2 = new Bid("N:1S", null, null);
 
             parentBid1.NextBids.Add(nestedBid1);
             parentBid2.NextBids.Add(nestedBid2);
@@ -92,13 +92,13 @@ namespace BridgeLesson.Tests
             // -> 1NT
             // -> 2S
 
-            var parentBid1 = new Bid("N:1S", null);
+            var parentBid1 = new Bid("N:1S", null, null);
 
             var description1 = "7-9 bal";
-            var nestedBid1 = new Bid("E:1NT", description1);
+            var nestedBid1 = new Bid("E:1NT", null, new BiddingSequence { Answer = description1});
 
             var description2 = "7-9 3+Spades";
-            var nestedBid2 = new Bid("E:2S", description2);
+            var nestedBid2 = new Bid("E:2S", null, new BiddingSequence { Answer = description2 });
             
             parentBid1.NextBids.Add(nestedBid1);
             parentBid1.NextBids.Add(nestedBid2);
@@ -118,8 +118,67 @@ namespace BridgeLesson.Tests
             
         }
 
-        
+        [TestMethod]
+        public void WholeSequenceIsAvailableWithBid()
+        {
+            //1S
+            // -> 1NT
+            // -> 2S
 
-        
+            var parentBid1 = new Bid("N:1S", "N:1S;");
+
+            var description1 = "7-9 bal";
+            var nestedBid1 = new Bid("E:1NT", "N:1S; E:1NT;", new BiddingSequence { Answer = description1});
+
+            var description2 = "7-9 3+Spades";
+            var nestedBid2 = new Bid("E:2S", "N:1S; E:2S;", new BiddingSequence { Answer = description2 });
+
+            parentBid1.NextBids.Add(nestedBid1);
+            parentBid1.NextBids.Add(nestedBid2);
+
+            IList<Bid> expected = new List<Bid> { parentBid1 };
+
+            IList<BiddingSequence> biddingSequences = new List<BiddingSequence> {
+                new BiddingSequence("N:1S; E:2S", description2),
+                new BiddingSequence("N:1S; E:1NT", description1)
+            };
+
+            var result = BiddingConverter.Convert(biddingSequences);
+
+            Assert.AreEqual(expected[0].BidSequence, result[0].BidSequence);
+            Assert.AreEqual(expected[0].NextBids[0].BidSequence, result[0].NextBids[0].BidSequence);
+        }
+
+        [TestMethod]
+        public void DescriptionIsCorrect()
+        {
+            //1S
+            // -> 1NT
+            // -> 2S
+
+            var parentBid1 = new Bid("N:1S", "N:1S;");
+
+            var description1 = "7-9 bal";
+            var nestedBid1 = new Bid("E:1NT", "N:1S; E:1NT;", new BiddingSequence { Answer = description1 });
+
+            var description2 = "7-9 3+Spades";
+            var nestedBid2 = new Bid("E:2S", "N:1S; E:2S;", new BiddingSequence { Answer = description2 });
+
+            parentBid1.NextBids.Add(nestedBid1);
+            parentBid1.NextBids.Add(nestedBid2);
+
+            IList<Bid> expected = new List<Bid> { parentBid1 };
+
+            IList<BiddingSequence> biddingSequences = new List<BiddingSequence> {
+                new BiddingSequence("N:1S; E:2S", description2),
+                new BiddingSequence("N:1S; E:1NT", description1)
+            };
+
+            var result = BiddingConverter.Convert(biddingSequences);
+
+            Assert.AreEqual(expected[0].OriginalObject.Answer, result[0].OriginalObject.Answer);
+            Assert.AreEqual(expected[0].NextBids[0].OriginalObject.Answer, result[0].NextBids[0].OriginalObject.Answer);
+        }
+
     }
 }
