@@ -14,7 +14,7 @@
             };
 
             dataFactory.addBiddingSequence = function (newBiddingSequence) {
-                return $http.post(biddingSequenceUrlBase, newBiddingSequence);
+                return $http.put(biddingSequenceUrlBase + newBiddingSequence.Id, newBiddingSequence);
             };
 
             dataFactory.getBiddingSystem = function (systemId) {

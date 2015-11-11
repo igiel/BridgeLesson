@@ -43,7 +43,7 @@
             return biddingSystemCtrl.allBiddingExamples.filter(function (current_a) { return biddingSystemCtrl.biddingExamples.filter(function (current_b) { return current_a.Id == current_b.Id }).length == 0 });
         }
           
-        biddingSystemCtrl.submit = function () {
+        biddingSystemCtrl.createNewSequence = function () {
             var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer};
             biddingSystemService.addBiddingSequence(biddingSequence)
                 .then(function (savedBiddingSequence) {
@@ -60,6 +60,15 @@
                         biddingSystemCtrl.addSequenceToSystem(savedBiddingSequence.data);
                 });
         };
+
+        biddingSystemCtrl.updateSequence = function (biddingSequence) {
+            biddingSystemService.addBiddingSequence(biddingSequence)
+            .then(function (savedBiddingSequence)
+            {
+                biddingSystemCtrl.selectedSequenceMode = null;
+            });
+        };
+
 
         biddingSystemCtrl.displayName = function (biddingSequence) {
             if (biddingSequence == undefined)

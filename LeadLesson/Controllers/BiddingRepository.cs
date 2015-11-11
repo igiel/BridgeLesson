@@ -66,9 +66,16 @@ namespace LeadLesson.Controllers
         }
 
 
-        public BiddingSequence CreateBiddingSequence(BiddingSequence biddingSequence)
+        public BiddingSequence CreateOrUpdateBiddingSequence(BiddingSequence biddingSequence)
         {
-            db.BiddingSequences.Add(biddingSequence);
+            if(biddingSequence.Id>0)
+            {
+                var biddingSequenceProxy = db.BiddingSequences.Find(biddingSequence.Id);
+                biddingSequenceProxy.CopyValuesFrom(biddingSequence);
+            }
+            else
+                db.BiddingSequences.Add(biddingSequence);
+
             db.SaveChanges();
             return biddingSequence;
         }

@@ -24,14 +24,18 @@ namespace LeadLesson.Controllers
         // POST: api/BiddingSequence
         public IHttpActionResult Post([FromBody]BiddingSequence biddingSequence)
         {
-            var biddingSystem = biddingRepository.CreateBiddingSequence(biddingSequence);
-            return Ok(biddingSystem);
+            var biddingSystem = biddingRepository.CreateOrUpdateBiddingSequence(biddingSequence);
+            return Created("biddingSequences",biddingSystem);
         }
 
         // PUT: api/BiddingSequence/5
-        public BiddingSequence Put(int id, [FromBody]BiddingSequence biddingSequence)
+        public IHttpActionResult Put(int id, [FromBody]BiddingSequence biddingSequence)
         {
-            return biddingRepository.CreateBiddingSequence(biddingSequence);
+            var biddingSystem = biddingRepository.CreateOrUpdateBiddingSequence(biddingSequence);
+            if (id > 0)
+                return Ok(biddingSystem);
+            else
+                return Created("biddingSequences", biddingSequence);
         }
 
         // DELETE: api/BiddingSequence/5
