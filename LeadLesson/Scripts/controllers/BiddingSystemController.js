@@ -45,7 +45,7 @@
           
         biddingSystemCtrl.createNewSequence = function () {
             var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer};
-            biddingSystemService.addBiddingSequence(biddingSequence)
+            biddingSystemService.createBiddingSequence(biddingSequence)
                 .then(function (savedBiddingSequence) {
                     biddingSystemCtrl.newSequence = '';
                     biddingSystemCtrl.newAnswer = '';
@@ -62,7 +62,7 @@
         };
 
         biddingSystemCtrl.updateSequence = function (biddingSequence) {
-            biddingSystemService.addBiddingSequence(biddingSequence)
+            biddingSystemService.updateBiddingSequence(biddingSequence)
             .then(function (savedBiddingSequence)
             {
                 biddingSystemCtrl.selectedSequenceMode = null;

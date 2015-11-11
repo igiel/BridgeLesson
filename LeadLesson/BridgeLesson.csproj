@@ -256,9 +256,9 @@
     <Content Include="Content\img\club-icon.png" />
     <Content Include="Content\img\club.png" />
     <Content Include="Content\img\diamond.png" />
-    <Content Include="Content\img\diamonds-icon.png" />
+    <Content Include="Content\img\diamond-icon.png" />
     <Content Include="Content\img\heart.png" />
-    <Content Include="Content\img\hearts-icon.png" />
+    <Content Include="Content\img\heart-icon.png" />
     <Content Include="Content\img\spade-icon.png" />
     <Content Include="Content\img\spade.png" />
     <Content Include="Scripts\angular\angular.treeview.js" />

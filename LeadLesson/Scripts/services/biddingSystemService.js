@@ -13,9 +13,13 @@
                 return $http.get(biddingSystemUrlBase);
             };
 
-            dataFactory.addBiddingSequence = function (newBiddingSequence) {
+            dataFactory.updateBiddingSequence = function (newBiddingSequence) {
                 return $http.put(biddingSequenceUrlBase + newBiddingSequence.Id, newBiddingSequence);
             };
+            dataFactory.createBiddingSequence = function (newBiddingSequence) {
+                return $http.post(biddingSequenceUrlBase, newBiddingSequence);
+            };
+            
 
             dataFactory.getBiddingSystem = function (systemId) {
                 return $http.get(biddingSystemUrlBase+systemId);

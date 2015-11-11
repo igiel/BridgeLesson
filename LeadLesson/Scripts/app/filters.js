@@ -29,13 +29,23 @@
             var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
             for (var i = 0; i < bids.length; i++) {
                 if (i % 4 == 0)
-                    result+='</tr><tr>';
+                    result += '</tr><tr>';
                 var bid = bids[i].split(':');
-                result+='<td>' + bid[1] + '</td>';
+                bidToRender = bid.length > 1 ? bid[1] : bid[0];
+                result += '<td>' + bidToRender + '</td>';
             }
             result += '</tr></tbody></table>';
 
             return $sce.trustAsHtml(result); 
+        };
+    }]);
+
+    angular.module('BridgeLessonModule').filter('biddingSymbols', ['$sce', function ($sce) {
+        return function (text) {
+            if (!text)
+                return text;
+            result = replaceBidsOnPictures(text);
+            return $sce.trustAsHtml(result);
         };
     }]);
 
