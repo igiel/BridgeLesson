@@ -1,4 +1,4 @@
 ﻿(function () {
-    var BridgeLessonModule = angular.module('BridgeLessonModule', []);
+    var BridgeLessonModule = angular.module('BridgeLessonModule', ['angularTreeview']);
 }());
 

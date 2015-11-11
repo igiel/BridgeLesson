@@ -32,7 +32,7 @@ namespace LeadLesson.Controllers
         {
             var biddingSequences = this.biddingRepository.GetBiddingSequencesBySystem(id);
             var rootBid = new Bid(null, null) { NextBids = BiddingConverter.Convert(biddingSequences) };
-            var bidsAsParentChild = new BiddingSystemGetAsParentChildViewModel() { RootBid = rootBid };
+            var bidsAsParentChild = new BiddingSystemGetAsParentChildViewModel { RootBid = rootBid };
             return Ok(bidsAsParentChild);
         }
         

@@ -63,13 +63,9 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
                 <br />
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         Defined sequences that belongs to this system:
@@ -88,15 +84,18 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <ul>
-                            <li class="list-group-item" ng-repeat="problem in biddingSystemCtrl.allBiddingExamplesAsParentChild">
-                                {{problem.BidSymbol}}
-                            </li>
-                        </ul>
+                        tree
+                        @*<li class="list-group-item" ng-repeat="problem in biddingSystemCtrl.allBiddingExamplesAsParentChild">*@
+                        <div data-tree-id ="biddingSystemTreeView"
+                             data-angular-treeview="true"
+                             data-tree-model="biddingSystemCtrl.allBiddingExamplesAsParentChild"
+                             data-node-id="BidSymbol"
+                             data-node-label="BidSymbol"
+                             data-node-children="NextBids">
+                        </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

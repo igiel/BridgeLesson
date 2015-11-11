@@ -10,7 +10,7 @@ namespace LeadLesson.Utils
     {
         public static List<Bid> Convert(IList<BiddingSequence> sequences)
         {
-            var bidRoot = new Bid(null, null);
+            var bidRoot = new Bid("root", null);
 
             foreach (var seq in sequences)
             {

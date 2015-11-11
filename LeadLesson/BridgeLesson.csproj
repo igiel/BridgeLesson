@@ -252,6 +252,7 @@
     <Compile Include="ViewModels\CreateBiddingSystemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular.treeview.css" />
     <Content Include="Content\img\club-icon.png" />
     <Content Include="Content\img\club.png" />
     <Content Include="Content\img\diamond.png" />
@@ -260,6 +261,8 @@
     <Content Include="Content\img\hearts-icon.png" />
     <Content Include="Content\img\spade-icon.png" />
     <Content Include="Content\img\spade.png" />
+    <Content Include="Scripts\angular\angular.treeview.js" />
+    <Content Include="Scripts\angular\angular.treeview.min.js" />
     <Content Include="Scripts\controllers\BiddingQuizController.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
