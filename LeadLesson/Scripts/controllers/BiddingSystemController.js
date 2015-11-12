@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var BiddingSystemController = function ($scope, biddingSystemService) {
+    var biddingSystemController = function ($scope, biddingSystemService) {
 
         var biddingSystemCtrl = this;
 
@@ -27,10 +27,10 @@
             }
 
             biddingSystemService.getBiddingSystem(biddingSystemCtrl.selectedSystem.Id)
-                .then(function (sequences) {
+                .then(function(sequences) {
                     biddingSystemCtrl.biddingExamples = sequences.data;
                     biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
-            })
+                });
 
            biddingSystemService.getBiddingSystemAsParentChild(biddingSystemCtrl.selectedSystem.Id)
                 .then(function (rootBid) {
@@ -63,24 +63,13 @@
                     
                 });
         };
-        //biddingSystemCtrl.beginEditingBid = function (objectToEdit) {
-        //    biddingSystemCtrl.selectedSequenceMode = 'editSelectedSequence';
-        //    angular.copy(objectToEdit, biddingSystemCtrl.editingObjectCopy);
-        //    biddingSystemCtrl.selectedSequenceMode = 'editSelectedSequence';
-        //}
-        
+          
         biddingSystemCtrl.endEditingBid = function () {
-            //biddingSystemCtrl.editingObjectCopy = undefined;
             biddingSystemCtrl.selectedSequenceMode = null;
         }
 
-        //biddingSystemCtrl.cancelEditingBid = function (objectToEdit) {
-        //    angular.copy(biddingSystemCtrl.editingObjectCopy, objectToEdit);
-        //    biddingSystemCtrl.editingObjectCopy = undefined;
-        //    biddingSystemCtrl.selectedSequenceMode = null;
-        //}
         biddingSystemCtrl.cancelCurrentAnswerEditing = function () {
-            biddingSystemCtrl.selectedSequenceMode = null
+            biddingSystemCtrl.selectedSequenceMode = null;
         }
 
         biddingSystemCtrl.updateSequence = function (biddingSequence) {
@@ -90,7 +79,6 @@
                 biddingSystemCtrl.selectedSequenceMode = null;
             });
         };
-
 
         biddingSystemCtrl.displayName = function (biddingSequence) {
             if (biddingSequence == undefined)
@@ -124,26 +112,20 @@
 
         biddingSystemCtrl.CreateBiddingSystem = function () {
             biddingSystemService.CreateBiddingSystem(biddingSystemCtrl.newSystem, biddingSystemCtrl.selectedPrototypeOfNewSystem)
-                .then(function (newSystemResponse) {
+                .then(function(newSystemResponse) {
                     biddingSystemCtrl.allSystems.push(newSystemResponse.data);
-                })
+                });
         };
 
-        //biddingSystemCtrl.abc = function (aaa) {
-        //    biddingSystemCtrl.newSequence = aaa;
+        //function find(biddingSequence) {
+        //    if (biddingSystemCtrl.allBiddingExamplesAsParentChild === undefined)
+        //        return;
+
         //}
-        //$scope.$watch('biddingSystemTreeView.currentNode', function (newObj, oldObj) {
-        //    biddingSystemCtrl.abc(newObj);
-        //    //if ($scope.biddingSystemTreeView && angular.isObject($scope.biddingSystemTreeView.currentNode)) {
-        //    //    biddingSystemCtrl.newSequence = $scope.biddingSystemTreeView.currentNode.BidSequence;
-        //    //}
-        //}, false);
-
-
     };
 
-    BiddingSystemController.$inject = ['$scope', 'biddingSystemService'];
+    biddingSystemController.$inject = ['$scope', 'biddingSystemService'];
 
-    angular.module('BridgeLessonModule').controller('BiddingSystemController', BiddingSystemController);
+    angular.module('BridgeLessonModule').controller('BiddingSystemController', biddingSystemController);
 
 })();
