@@ -58,8 +58,30 @@
                     }
                     else
                         biddingSystemCtrl.addSequenceToSystem(savedBiddingSequence.data);
+
+                    $("#sequence").focus();
+                    
                 });
         };
+        //biddingSystemCtrl.beginEditingBid = function (objectToEdit) {
+        //    biddingSystemCtrl.selectedSequenceMode = 'editSelectedSequence';
+        //    angular.copy(objectToEdit, biddingSystemCtrl.editingObjectCopy);
+        //    biddingSystemCtrl.selectedSequenceMode = 'editSelectedSequence';
+        //}
+        
+        biddingSystemCtrl.endEditingBid = function () {
+            //biddingSystemCtrl.editingObjectCopy = undefined;
+            biddingSystemCtrl.selectedSequenceMode = null;
+        }
+
+        //biddingSystemCtrl.cancelEditingBid = function (objectToEdit) {
+        //    angular.copy(biddingSystemCtrl.editingObjectCopy, objectToEdit);
+        //    biddingSystemCtrl.editingObjectCopy = undefined;
+        //    biddingSystemCtrl.selectedSequenceMode = null;
+        //}
+        biddingSystemCtrl.cancelCurrentAnswerEditing = function () {
+            biddingSystemCtrl.selectedSequenceMode = null
+        }
 
         biddingSystemCtrl.updateSequence = function (biddingSequence) {
             biddingSystemService.updateBiddingSequence(biddingSequence)

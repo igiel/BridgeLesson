@@ -26,9 +26,10 @@
                 return text;
             text = replaceBidsOnPictures(text);
             var bids = text.split(';');
-            var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
+            //var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
+            var result = '<table><tbody><tr><th>N</th><th>S</th>'
             for (var i = 0; i < bids.length; i++) {
-                if (i % 4 == 0)
+                if (i % 2 == 0)
                     result += '</tr><tr>';
                 var bid = bids[i].split(':');
                 bidToRender = bid.length > 1 ? bid[1] : bid[0];

@@ -32,9 +32,14 @@ namespace LeadLesson.Controllers
             return biddingSystem.BiddingSystemSequences.Select(bss => bss.BiddingSequence).ToList();
         }
 
-        internal object GetBiddingSequence(int biddingSequenceId)
+        public BiddingSequence GetBiddingSequence(int biddingSequenceId)
         {
             return db.BiddingSequences.Find(biddingSequenceId);
+        }
+
+        public BiddingSystem GetBiddingSystem(int id)
+        {
+            return db.BiddingSystems.Find(id);
         }
 
         public void AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
