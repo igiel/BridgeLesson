@@ -42,7 +42,7 @@ div[data-tree-model] li .normal {
   background-repeat: no-repeat;
 }
 
-div[data-tree-model] li i, div[data-tree-model] li span {
+div[data-tree-model] li i, div[data-tree-model] li span, div[data-tree-model] li div {
   cursor: pointer;
 }
 

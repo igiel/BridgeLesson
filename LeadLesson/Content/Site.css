@@ -92,4 +92,8 @@ textarea {
 .tree-row {
     border-bottom: 1px dashed silver;
     padding: 4px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+

@@ -33,7 +33,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         <div data-tree-id="biddingSystemTreeView"
                              data-angular-treeview="true"
                              data-tree-model="biddingSystemCtrl.allBiddingExamplesAsParentChild"
@@ -44,10 +44,10 @@
                              data-node-click="biddingSystemCtrl.newSequence = biddingSystemTreeView.currentNode.BidSequence">
                         </div>
                     </div>
-                    <div class="col-xs-8" ng-if="biddingSystemTreeView.currentNode">
+                    <div class="col-xs-6" ng-if="biddingSystemTreeView.currentNode">
                         <div class="row">
 
-                            <div class="col-xs-4">
+                            <div class="col-xs-6">
                                 <div class="row list-group-item">
                                     <div class="col-xs-12"><span ng-bind-html="biddingSystemTreeView.currentNode.BidSequence | bidding"></span></div>
                                 </div>
