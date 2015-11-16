@@ -42,17 +42,19 @@ namespace LeadLesson.Controllers
             return db.BiddingSystems.Find(id);
         }
 
-        public void AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
+        public BiddingSystemSequence AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
         {
             var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
 
             if (biddingSystem == null)
                 throw new System.ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
             if (biddingSystem.BiddingSystemSequences.Any(bss => bss.BiddingSequence.Id == biddingSequenceId))
-                return;
+                return biddingSystem.BiddingSystemSequences.First(bss=> bss.BiddingSequence.Id == biddingSequenceId);
 
-            biddingSystem.AddBiddingSequence(db.BiddingSequences.Find(biddingSequenceId));
+            var biddingSystemSequence = biddingSystem.AddBiddingSequence(db.BiddingSequences.Find(biddingSequenceId));
             db.SaveChanges();
+
+            return biddingSystemSequence;
         }
 
         public void RemoveBiddingSequence(long biddingSystemId, long biddingSequenceId)

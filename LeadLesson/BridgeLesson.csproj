@@ -253,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular.treeview.css" />
+    <Content Include="Content\img\bg1.JPG" />
     <Content Include="Content\img\club-icon.png" />
     <Content Include="Content\img\club.png" />
     <Content Include="Content\img\diamond.png" />
@@ -302,6 +303,7 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\templates\add-new-bidding-sequence.html" />
     <Content Include="Scripts\templates\add-new-system-control.html" />
     <Content Include="Scripts\templates\bidding-quiz-results.html" />
     <Content Include="Scripts\templates\bidding-quiz.html" />

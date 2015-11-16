@@ -83,18 +83,20 @@
         biddingSystemCtrl.displayName = function (biddingSequence) {
             if (biddingSequence == undefined)
                 return "";
-            return (biddingSequence.Sequence + " -> " + biddingSequence.Answer)
+            return (biddingSequence.Sequence + " -> " + biddingSequence.Answer);
         }
 
         biddingSystemCtrl.addSequenceToSystem = function (biddingSequenceToAdd) {
             if (biddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
                 return;
             biddingSystemService.addBiddingSequenceToSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToAdd.Id)
-                .then(function (success)
+                .then(function (addedSequence)
                 {
                     biddingSystemCtrl.biddingExamples.push(biddingSequenceToAdd);
                     biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
                     biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
+
+                    addBiddingSequence(addedSequence.data);
                 });
         }
 
@@ -117,11 +119,13 @@
                 });
         };
 
-        //function find(biddingSequence) {
-        //    if (biddingSystemCtrl.allBiddingExamplesAsParentChild === undefined)
-        //        return;
+        function addBiddingSequence(sequenceToAdd) {
+            //splitSequence = sequenceToAdd.BidSequence.split(';');
+            //for (var i = 0; i < splitSequence.length; i++)
+            //    biddingSystemCtrl.allBiddingExamplesAsParentChild
+            biddingSystemCtrl.allBiddingExamplesAsParentChild.RootBid.NextBids.push(sequenceToAdd);
 
-        //}
+        }
     };
 
     biddingSystemController.$inject = ['$scope', 'biddingSystemService'];

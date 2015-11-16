@@ -1,16 +1,17 @@
 ﻿
 <div class="row" ng-app="BridgeLessonModule">
     <div class="col-sm-12">
-        <div class="jumbotron">
-            <h1>Bidding system lesson</h1>
-            <p class="lead">This site would help you improve your bidding system</p>
+        <div class="subpage-header">
+            <h2>Bidding system lesson</h2>
+            <p class="lead">Start the bidding quiz or check, extend and create your own bidding system</p>
+        </div>
+        <div class="text-center">
+            <p class="bidding-lesson-main-text">What is your choice?</p>
+            <a href="@Url.Action("ManageBiddingSystem")" class="btn btn-navigate">Check system</a>
+            <a href="@Url.Action("BiddingQuiz")" class="btn btn-navigate">Start bidding quiz!</a>
         </div>
     </div>
 
-    <div class="text-center">
-        <p>You can either start bidding quiz or check and extend our system by new bidding sequences.</p>
-        <a href="@Url.Action("ManageBiddingSystem")" class="btn btn-primary">Check our system</a>
-        <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary">Start bidding quiz!</a>
-    </div>
+    
 
 </div>

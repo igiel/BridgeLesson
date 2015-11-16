@@ -1,0 +1,36 @@
+﻿<ul class="nav nav-tabs list-inline">
+    <li class="active"><a data-toggle="tab" href="#menu1">Create your new sequence</a></li>
+    <li><a data-toggle="tab" href="#menu2">Add existing sequence</a></li>
+</ul>
+<div class="tab-content">
+    <div id="menu1" class="tab-pane fade in active">
+        <div class="col-md-12">
+            <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.createNewSequence()">
+                <label>
+                    Sequence:
+                    <input type="text" class="form-control" id="sequence" name="sequence" data-ng-model="biddingSystemCtrl.newSequence" required autofocus />
+                </label>
+                <label>
+                    Meaning:
+                    <input type="text" class="form-control" id="answer" name="answer" data-ng-model="biddingSystemCtrl.newAnswer" required />
+                </label>
+                <button type="submit" class="btn btn-success" ng-disabled="!biddingSystemCtrl.newSequence">Create new sequence!</button>
+            </form>
+        </div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <div class="col-md-12">
+            <label>
+                Sequence -> Meaning:
+                <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd" class="form-control"
+                        ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
+                    <option value="">Choose sequence to add</option>
+                </select>
+            </label>
+            <button type="button" class="btn btn-success" ng-disabled="!biddingSystemCtrl.selectedBiddingSequenceToAdd"
+                    ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">
+                Add sequence to system
+            </button>
+        </div>
+    </div>
+</div>

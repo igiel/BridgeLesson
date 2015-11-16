@@ -1,68 +1,35 @@
 ﻿
 <div class="row" ng-app="BridgeLessonModule">
     <div class="col-sm-12">
-        <div class="jumbotron">
-            <h1>Bidding system lesson</h1>
-            <p class="lead">This site would help you improve your bidding system</p>
+        <a href="@Url.Action("BiddingLesson")" class="btn btn-link">Back to the bidding page</a>
+        <div class="subpage-header">
+            <h2>Bidding system lesson</h2>
+            <p>You can check and verify your bidding system details here</p>
         </div>
         <div ng-controller="BiddingSystemController as biddingSystemCtrl">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="@Url.Action("Index")" class="btn btn-primary">Back to main page</a>
-                    <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary" title="Start quiz with your chosen system!" ng-disabled="!biddingSystemCtrl.selectedSystem">Start quiz!</a>
-                </div>
-            </div>
-            <div class="well">
-                <span>Please select system:</span>
-                <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" class="form-control"
-                        ng-change="biddingSystemCtrl.updateSystem(); biddingSystemTreeView.currentNode = null"
-                        ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
-                    <option value="">Choose system</option>
-                </select>
+            <div class="well row">
+                <div class="col-md-4">
+                    <span>Please select system:</span>
+                    <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" class="form-control"
+                            ng-change="biddingSystemCtrl.updateSystem(); biddingSystemTreeView.currentNode = null"
+                            ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
+                        <option value="">Choose system</option>
+                    </select>
 
-                <div>
-                    <add-new-system-control></add-new-system-control>
+                    <div>
+                        <add-new-system-control></add-new-system-control>
+                    </div>
                 </div>
-                <div ng-if="biddingSystemCtrl.selectedSystem != undefined"> <i>{{biddingSystemCtrl.selectedSystem.Description}}</i></div>
+                <div class="col-md-8">
+                    <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
+                        <strong>System description:</strong><br/>
+                        <i>{{biddingSystemCtrl.selectedSystem.Description}}</i>
+                    </div>
+                </div>
             </div>
             <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
                 <div class="row">
-                    <ul class="nav nav-tabs list-inline">
-                        <li class="active"><a data-toggle="tab" href="#menu1">Create your new sequence</a></li>
-                        <li><a data-toggle="tab" href="#menu2">Add existing sequence</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="menu1" class="tab-pane fade in active">
-                            <div class="col-md-12">
-                                <form role="form" class="form-inline" ng-submit="biddingSystemCtrl.createNewSequence()">
-                                    <label>
-                                        Sequence:
-                                        <input type="text" class="form-control" id="sequence" name="sequence" data-ng-model="biddingSystemCtrl.newSequence" required autofocus/>
-                                    </label>
-                                    <label>
-                                        Meaning:
-                                        <input type="text" class="form-control" id="answer" name="answer" data-ng-model="biddingSystemCtrl.newAnswer" required />
-                                    </label>
-                                    <button type="submit" class="btn btn-success" ng-disabled="!biddingSystemCtrl.newSequence">Create new sequence!</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div id="menu2" class="tab-pane fade">
-                            <div class="col-md-12">
-                                <label>
-                                    Sequence -> Meaning:
-                                    <select name="" id="" ng-model="biddingSystemCtrl.selectedBiddingSequenceToAdd" class="form-control"
-                                            ng-options="newBiddingSequence as biddingSystemCtrl.displayName(newBiddingSequence) for newBiddingSequence in biddingSystemCtrl.biddingExamplesNotUsedInSystem track by newBiddingSequence.Id">
-                                        <option value="">Choose sequence to add</option>
-                                    </select>
-                                </label>
-                                <button type="button" class="btn btn-success" ng-disabled="!biddingSystemCtrl.selectedBiddingSequenceToAdd"
-                                        ng-click="biddingSystemCtrl.addSequenceToSystem(biddingSystemCtrl.selectedBiddingSequenceToAdd)">
-                                    Add sequence to system
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <add-new-bidding-sequence></add-new-bidding-sequence>
                 </div>
                 <br />
                 <div class="row">
@@ -72,62 +39,49 @@
                              data-tree-model="biddingSystemCtrl.allBiddingExamplesAsParentChild"
                              data-node-id="BidSequence"
                              data-node-label="BidSymbol | biddingSymbols"
+                             data-node-extended-label="OriginalObject.Answer | biddingSymbols"
                              data-node-children="NextBids"
                              data-node-click="biddingSystemCtrl.newSequence = biddingSystemTreeView.currentNode.BidSequence">
                         </div>
                     </div>
                     <div class="col-xs-8" ng-if="biddingSystemTreeView.currentNode">
                         <div class="row">
-                            <div class="col-xs-6">
-                                <ul>
-                                    <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids">
-                                        <span ng-bind-html="bid.BidSymbol | biddingSymbols"></span>
-                                        <span class="glyphicon glyphicon-arrow-right"></span>
-                                        <span>{{bid.OriginalObject.Answer}}</span>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <div class="col-xs-4">
                                 <div class="row list-group-item">
                                     <div class="col-xs-12"><span ng-bind-html="biddingSystemTreeView.currentNode.BidSequence | bidding"></span></div>
                                 </div>
                                 <div class="row list-group-item">
-                                    <div class="col-xs-12" data-ng-show="biddingSystemCtrl.selectedSequenceMode !='editSelectedSequence'">{{biddingSystemTreeView.currentNode.OriginalObject.Answer}}</div>
+                                    <div class="col-xs-12" data-ng-show="biddingSystemCtrl.selectedSequenceMode !='editSelectedSequence'">
+                                        <span ng-bind-html="biddingSystemTreeView.currentNode.OriginalObject.Answer | biddingSymbols"></span>
+                                    </div>
                                     <div data-ng-show="biddingSystemCtrl.selectedSequenceMode =='editSelectedSequence'">
                                         <form data-ng-submit="biddingSystemCtrl.updateSequence(biddingSystemTreeView.currentNode.OriginalObject); biddingSystemCtrl.endEditingBid()">
-                                            <input type="text" class="form-control" id="currentAnswer" name="currentAnswer" data-ng-model="biddingSystemTreeView.currentNode.OriginalObject.Answer" ng-model-options="{ updateOn: 'submit' }" />
-                                            <input type="submit" value="Save" class="btn btn-success" >
+                                            <input type="text" class="form-control" id="currentAnswer" name="currentAnswer" data-ng-model="biddingSystemTreeView.currentNode.OriginalObject.Answer" ng-model-options="{ updateOn: 'submit' }"/>
+                                            <input type="submit" value="Save" class="btn btn-success">
                                             <input type="button" value="Cancel" class="btn btn-danger" data-ng-click="currentAnswer.$rollbackViewValue(); biddingSystemCtrl.cancelCurrentAnswerEditing()">
                                         </form>
                                     </div>
                                 </div>
                                 <div class="row list-group-item">
                                     <div class="col-xs-12">
-                                        <a class="btn btn-danger" data-ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(biddingSystemTreeView.currentNode.OriginalObject)">Remove</a>
+                                        <a class="btn btn-default" data-ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(biddingSystemTreeView.currentNode.OriginalObject)">Remove</a>
                                         <a class="btn btn-primary" data-ng-click="biddingSystemCtrl.selectedSequenceMode ='editSelectedSequence'">Edit</a>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xs-6">
+                                <ul>
+                                    <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids">
+                                        <span ng-bind-html="bid.BidSymbol | biddingSymbols"></span>
+                                        <span class="glyphicon glyphicon-arrow-right"></span>
+                                        <span ng-bind-html="bid.OriginalObject.Answer | biddingSymbols"></span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                @*<div class="row">
-                        <div class="col-md-12">
-                            Defined sequences that belongs to this system:
-                        </div>
-                        <div class="col-md-12">
-                            <ul class="col-md-12">
-                                <li class="list-group-item" ng-repeat="problem in biddingSystemCtrl.biddingExamples">
-                                    <div class="row container-fluid">
-                                        <div class="col-xs-4"><span ng-bind-html="problem.Sequence | bidding"></span></div>
-                                        <div class="col-xs-4">{{problem.Answer}}</div>
-                                        <div class="col-xs-4"><span ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(problem)" class="glyphicon glyphicon-remove"></span></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>*@
             </div>
         </div>
     </div>

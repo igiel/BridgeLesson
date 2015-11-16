@@ -1,14 +1,14 @@
 ﻿
 <div class="row" ng-app="BridgeLessonModule">
     <div class="col-sm-12">
-        <div class="jumbotron">
-            <h1>Leading lesson</h1>
-            <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
-        </div>
+
+        <h2>Leading lesson</h2>
+        <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
+
         <form name="leadExamplesForm" ng-submit="submit()" ng-controller="LeadController">
             <h3>Are you sure that you know how to lead from all combinations below? </h3>
             <p>Please indicate the correct card in each one and click check. We assume that we lead in the same way on color and NT games.</p>
-            
+
             <ul class="col-md-12" ng-repeat="dist in LeadDistribution | startFrom:currentPage*pageSize | limitTo:pageSize">
                 <li class="list-group-item">
                     <div ng-class="dist.correct != undefined ? (dist.correct ? 'alert-success' : 'alert-danger') : ''">
@@ -24,6 +24,6 @@
             <button type="submit" class="btn btn-primary">Check it</button>
             <button type="button" class="btn btn-success" ng-click="proceedToTheNext()" ng-disabled="!canProceedFurther">Next set</button>
         </form>
-        
-     </div>
+
+    </div>
 </div>

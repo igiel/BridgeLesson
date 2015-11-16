@@ -1,6 +1,6 @@
-﻿using LeadLesson.Models;
+﻿using System;
+using LeadLesson.Models;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LeadLesson.ViewModels
 {
@@ -10,7 +10,7 @@ namespace LeadLesson.ViewModels
         {
             this.BidSymbol = bidSymbol;
             this.BidSequence = bidSequence;
-            this.OriginalObject = biddingSequence != null ? biddingSequence : new BiddingSequence { Sequence = bidSequence, Id = 0 };
+            this.OriginalObject = biddingSequence ?? new BiddingSequence { Sequence = bidSequence, Id = 0 };
             this.NextBids = new List<Bid>();
         }
 
@@ -49,12 +49,12 @@ namespace LeadLesson.ViewModels
             //Luckly, [C]lub, [D]iamond, [H]eart, [S]spade, [NT] is an alphabetical order :)
             //And Level is alphabetial also
 
-            return xBid.CompareTo(yBid);
+            return String.Compare(xBid, yBid, StringComparison.Ordinal);
         }
 
         public override string ToString()
         {
-            return string.Format("Bid symbol: {0}, Description: {1}", BidSymbol, this.OriginalObject.Answer);
+            return $"Bid symbol: {this.BidSymbol}, Description: {this.OriginalObject.Answer}";
         }
     }
 }

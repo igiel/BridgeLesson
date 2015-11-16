@@ -19,8 +19,8 @@
                 <bidding-quiz ng-hide="biddingCtrl.allProblemsSolved"></bidding-quiz>
                 <div ng-if="biddingCtrl.allProblemsSolved">
                     <bidding-quiz-results></bidding-quiz-results>
-                    <a href="@Url.Action("BiddingQuiz")" class="btn btn-primary">Restart quiz</a>
-                    <a href="@Url.Action("BiddingLesson")" class="btn btn-primary">Back to bidding page</a>
+                    <a href="@Url.Action("BiddingQuiz")" class="btn btn-navigate">Restart quiz</a>
+                    <a href="@Url.Action("BiddingLesson")" class="btn btn-navigate">Back to bidding page</a>
                 </div>
             </div>
         </div>

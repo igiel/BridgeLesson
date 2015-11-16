@@ -13,11 +13,15 @@ namespace LeadLesson.Models
 
         public virtual IList<BiddingSystemSequence> BiddingSystemSequences { get; set; }
               
-        public void AddBiddingSequence(BiddingSequence biddingSequence)
+        public BiddingSystemSequence AddBiddingSequence(BiddingSequence biddingSequence)
         {
             if (this.BiddingSystemSequences == null)
                 this.BiddingSystemSequences = new List<BiddingSystemSequence>();
-            this.BiddingSystemSequences.Add(new BiddingSystemSequence(this, biddingSequence));
+
+            var biddingSystemSequence = new BiddingSystemSequence(this, biddingSequence);
+            this.BiddingSystemSequences.Add(biddingSystemSequence);
+            return biddingSystemSequence;
+
         }
 
         internal void RemoveBiddingSequence(long biddingSequenceId)
