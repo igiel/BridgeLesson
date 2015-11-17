@@ -4,7 +4,6 @@ using LeadLesson.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace BridgeLesson.Tests
 {
@@ -26,9 +25,9 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void OneSequence()
         {
-            IList<Bid> expected = new List<Bid>{ new Bid("N:1H", null,null) };
+            IList<Bid> expected = new List<Bid>{ new Bid("N:1H", null) };
 
-            IList<BiddingSequence> biddingSequences = new List<BiddingSequence> { new BiddingSequence("N:1H;",null)};
+            IList<BiddingSequence> biddingSequences = new List<BiddingSequence> { new BiddingSequence(@"N:1H;",null)};
 
             var result = BiddingConverter.Convert(biddingSequences);
 
@@ -41,7 +40,7 @@ namespace BridgeLesson.Tests
         {
             var description = "5+Spades";
             var nestedBid = new Bid("E:1S", null, new BiddingSequence { Answer = description });
-            var parentBid = new Bid("N:1H", null, null);
+            var parentBid = new Bid("N:1H", null);
             parentBid.NextBids.Add(nestedBid);
 
             IList <Bid> expected = new List<Bid> { parentBid};
@@ -61,11 +60,11 @@ namespace BridgeLesson.Tests
         {
             var description1 = "5+Spades";
             var nestedBid1 = new Bid("E:1S", null, new BiddingSequence { Answer = description1 });
-            var parentBid1 = new Bid("N:1H", null, null);
+            var parentBid1 = new Bid("N:1H", null);
 
             var description2 = "7-9 bal";
             var nestedBid2 = new Bid("S:1NT", null, new BiddingSequence { Answer = description2 });
-            var parentBid2 = new Bid("N:1S", null, null);
+            var parentBid2 = new Bid("N:1S", null);
 
             parentBid1.NextBids.Add(nestedBid1);
             parentBid2.NextBids.Add(nestedBid2);
@@ -92,7 +91,7 @@ namespace BridgeLesson.Tests
             // -> 1NT
             // -> 2S
 
-            var parentBid1 = new Bid("N:1S", null, null);
+            var parentBid1 = new Bid("N:1S", null);
 
             var description1 = "7-9 bal";
             var nestedBid1 = new Bid("E:1NT", null, new BiddingSequence { Answer = description1});

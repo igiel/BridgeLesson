@@ -39,16 +39,6 @@
                 $scope.validationMessage = 'Are you sure?';
         };
 
-        $scope.proceedToTheNext = function () {
-            $scope.currentPage++;
-            setProceedBackAndFurther();
-        }
-
-        $scope.proceedBack = function () {
-            $scope.currentPage--;
-            setProceedBackAndFurther();
-        }
-        
         var setProceedBackAndFurther = function () {
             $scope.canProceedBack = $scope.currentPage > 0;
 
@@ -62,6 +52,16 @@
                     allExamplesCorrect = false;
             }
             $scope.canProceedFurther = allExamplesCorrect && $scope.LeadDistribution.length >= endValue;
+        }
+
+        $scope.proceedToTheNext = function () {
+            $scope.currentPage++;
+            setProceedBackAndFurther();
+        }
+
+        $scope.proceedBack = function () {
+            $scope.currentPage--;
+            setProceedBackAndFurther();
         }
 
     };

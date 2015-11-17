@@ -9,9 +9,9 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void SortNextBidsMethodOneBid()
         {
-            var firstBid = new Bid("E:1D", null, null);
+            var firstBid = new Bid("E:1D", null);
             
-            var rootBid = new Bid(null, null, null);
+            var rootBid = new Bid(null, null);
 
             rootBid.NextBids.Add(firstBid);
 
@@ -23,11 +23,11 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void SortNextBidsMethod()
         {
-            var firstBid = new Bid("E:1D", null, null);
-            var secondBid = new Bid("N:1H", null, null);
-            var thirdBid = new Bid("N:1NT", null, null);
+            var firstBid = new Bid("E:1D", null);
+            var secondBid = new Bid("N:1H", null);
+            var thirdBid = new Bid("N:1NT", null);
 
-            var rootBid = new Bid(null, null, null);
+            var rootBid = new Bid(null, null);
 
             rootBid.NextBids.Add(secondBid);
             rootBid.NextBids.Add(thirdBid);
@@ -43,11 +43,11 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void SortNextBidsMethodDifferentBidLevel()
         {
-            var firstBid = new Bid("E:1NT", null, null);
-            var secondBid = new Bid("N:2S", null, null);
-            var thirdBid = new Bid("N:3NT", null, null);
+            var firstBid = new Bid("E:1NT", null);
+            var secondBid = new Bid("N:2S", null);
+            var thirdBid = new Bid("N:3NT", null);
 
-            var rootBid = new Bid(null, null, null);
+            var rootBid = new Bid(null, null);
 
             rootBid.NextBids.Add(secondBid);
             rootBid.NextBids.Add(thirdBid);
@@ -63,12 +63,12 @@ namespace BridgeLesson.Tests
         [TestMethod]
         public void SortNextBidsMethodSecondLevelDeepes()
         {
-            var firstLevelBid = new Bid(null, null, null);
-            var firstBid = new Bid("E:1D", null, null);
-            var secondBid = new Bid("N:1H", null, null);
-            var thirdBid = new Bid("N:1NT", null, null);
+            var firstLevelBid = new Bid(null, null);
+            var firstBid = new Bid("E:1D", null);
+            var secondBid = new Bid("N:1H", null);
+            var thirdBid = new Bid("N:1NT", null);
 
-            var rootBid = new Bid(null, null, null);
+            var rootBid = new Bid(null, null);
 
             firstLevelBid.NextBids.Add(secondBid);
             firstLevelBid.NextBids.Add(thirdBid);

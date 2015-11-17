@@ -43,6 +43,9 @@
             proceedToTheNext(false);
         };
 
+        var setProceedBackAndFurther = function () {
+            biddingCtrl.canProceedBack = biddingCtrl.currentProblem > 0;
+        };
 
         biddingCtrl.proceedBack = function () {
             biddingCtrl.currentProblem--;
@@ -50,10 +53,6 @@
             setProceedBackAndFurther();
         };
 
-        var setProceedBackAndFurther = function () {
-            biddingCtrl.canProceedBack = biddingCtrl.currentProblem > 0;
-            //biddingCtrl.canProceedFurther = biddingCtrl.biddingExamples[biddingCtrl.currentProblem].isCorrect != undefined && biddingCtrl.currentProblem < biddingCtrl.biddingExamples.Length;
-        };
 
         biddingCtrl.solvedCount = function () {
             var correctCount = 0;
