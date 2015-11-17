@@ -265,6 +265,7 @@
     <Content Include="Scripts\angular\angular.treeview.js" />
     <Content Include="Scripts\angular\angular.treeview.min.js" />
     <Content Include="Scripts\controllers\BiddingQuizController.js" />
+    <Content Include="Scripts\controllers\BiddingSequenceCreateController.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
     <Content Include="Scripts\app\directives.js" />

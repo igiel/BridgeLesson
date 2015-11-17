@@ -111,10 +111,23 @@ textarea {
     text-align: right;
 }
 
-.bid-description-header span {
-    cursor: pointer;
-}
 
 .full-bid-description {
     white-space: pre-wrap;
+}
+
+.biddingBox {
+    width: 100%;
+    text-align: center;
+}
+
+.biddingBox td{
+    height: 30px;
+    text-align: center;
+    border: solid 1px silver;
+    cursor: pointer;
+}
+
+.biddingBox span {
+    cursor: pointer;
 }

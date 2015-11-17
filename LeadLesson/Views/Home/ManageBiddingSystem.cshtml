@@ -41,7 +41,7 @@
                              data-node-label="BidSymbol | biddingSymbols"
                              data-node-extended-label="OriginalObject.Answer | biddingSymbols"
                              data-node-children="NextBids"
-                             data-node-click="biddingSystemCtrl.newSequence = biddingSystemTreeView.currentNode.BidSequence">
+                             data-node-click="newSequence.Sequence = biddingSystemTreeView.currentNode.BidSequence">
                         </div>
                     </div>
                     <div class="col-xs-6" ng-if="biddingSystemTreeView.currentNode">
@@ -70,8 +70,10 @@
                                         </form>
                                     </div>
                                 </div>
+                                <br />
                             </div>
                             <div class="col-xs-12">
+                                
                                 <strong>Further sequences:</strong>
                                 <ul>
                                     <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids">

@@ -5,6 +5,7 @@
 
         var biddingSystemCtrl = this;
 
+        $scope.newSequence = { Sequence: '', Answer: '' };
         //NESW
         //in answer bbo tokens for color symbols should be converted from S!,H!,C!,D! 
         
@@ -44,11 +45,11 @@
         }
           
         biddingSystemCtrl.createNewSequence = function () {
-            var biddingSequence = { sequence: biddingSystemCtrl.newSequence, answer: biddingSystemCtrl.newAnswer};
+            var biddingSequence = { sequence: $scope.newSequence.Sequence, answer: $scope.newSequence.Answer };
             biddingSystemService.createBiddingSequence(biddingSequence)
                 .then(function (savedBiddingSequence) {
-                    biddingSystemCtrl.newSequence = '';
-                    biddingSystemCtrl.newAnswer = '';
+                    $scope.newSequence.Sequence = '';
+                    $scope.newSequence.Answer = '';
 
                     var selectedSystemId = biddingSystemCtrl.selectedSystem != undefined ? biddingSystemCtrl.selectedSystem.Id : null;
                     biddingSystemCtrl.allBiddingExamples.push(savedBiddingSequence.data);
