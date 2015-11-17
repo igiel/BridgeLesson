@@ -1,4 +1,4 @@
 ﻿(function () {
-    var BridgeLessonModule = angular.module('BridgeLessonModule', ['angularTreeview', 'ngSanitize']);
+    angular.module('BridgeLessonModule', ['angularTreeview', 'ngSanitize']);
 }());
 
