@@ -20,6 +20,9 @@ namespace LeadLesson.Utils
 
             foreach (var seq in sequences)
             {
+                if(seq.Sequence==null)
+                    continue;
+
                 var sequenceWithoutWhitespaces = Regex.Replace(seq.Sequence, @"\s+", "");
                 var splitedSequences = sequenceWithoutWhitespaces.Split(new char[] { ';' }, System.StringSplitOptions.RemoveEmptyEntries);
                 if (!splitedSequences.Any())

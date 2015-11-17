@@ -64,8 +64,13 @@ namespace LeadLesson.Controllers
                 throw new ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
 
             var biddingSystemSequence = db.BiddingSystemSequences.FirstOrDefault(bss => bss.BiddingSystem.Id == biddingSystemId && bss.BiddingSequence.Id == biddingSequenceId);
+
+            if (biddingSystemSequence == null)
+                return;
+
             if (biddingSystem == null)
-                throw new ArgumentException( string.Format("Bidding system sequence with with systemId={0} and sequenceid={1} doesn't exist.", biddingSystemId, biddingSequenceId));
+                throw new ArgumentException(
+                    $"Bidding system sequence with with systemId={biddingSystemId} and sequenceid={biddingSequenceId} doesn't exist.");
 
             db.BiddingSystemSequences.Remove(biddingSystemSequence);
 

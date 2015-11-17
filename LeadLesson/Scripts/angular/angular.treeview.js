@@ -53,7 +53,7 @@
 				var template =
 					'<ul>' +
 						'<li data-ng-repeat="node in ' + treeModel + '">' +
-                            '<div class="tree-row" data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node); ' + nodeClick + '">' +
+                            '<div class="tree-row" data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node); ' + nodeClick + '" data-ng-dblclick="' + treeId + '.selectNodeHead(node)">' +
 							    '<i class="glyphicon glyphicon-plus" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							    '<i class="glyphicon glyphicon-minus" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							    '<i class="glyphicon glyphicon-arrow-right" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +

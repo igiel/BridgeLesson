@@ -106,10 +106,11 @@
                 return;
             biddingSystemService.removeBiddingSequenceFromSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToRemove.Id)
                 .then(function (success) {
-                    var indexToRemove = biddingSystemCtrl.biddingExamples.indexOf(biddingSequenceToRemove);
-                    if (indexToRemove > -1)
-                        biddingSystemCtrl.biddingExamples.splice(indexToRemove, 1);
-                    biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
+                    biddingSystemCtrl.updateSystem();
+                    //var indexToRemove = biddingSystemCtrl.biddingExamples.indexOf(biddingSequenceToRemove);
+                    //if (indexToRemove > -1)
+                    //    biddingSystemCtrl.biddingExamples.splice(indexToRemove, 1);
+                    //biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
                 });
         }
 

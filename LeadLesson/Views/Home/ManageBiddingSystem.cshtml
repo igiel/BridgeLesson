@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-8">
                     <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
-                        <strong>System description:</strong><br/>
+                        <strong>System description:</strong><br />
                         <i>{{biddingSystemCtrl.selectedSystem.Description}}</i>
                     </div>
                 </div>
@@ -46,31 +46,33 @@
                     </div>
                     <div class="col-xs-6" ng-if="biddingSystemTreeView.currentNode">
                         <div class="row">
-
-                            <div class="col-xs-6">
+                            <div class="col-xs-12">
                                 <div class="row list-group-item">
-                                    <div class="col-xs-12"><span ng-bind-html="biddingSystemTreeView.currentNode.BidSequence | bidding"></span></div>
+                                    <div class="col-xs-12">
+                                        <strong>Sequence:</strong>
+                                        <span ng-bind-html="biddingSystemTreeView.currentNode.BidSequence | bidding"></span>
+                                    </div>
                                 </div>
                                 <div class="row list-group-item">
                                     <div class="col-xs-12" data-ng-show="biddingSystemCtrl.selectedSequenceMode !='editSelectedSequence'">
-                                        <span ng-bind-html="biddingSystemTreeView.currentNode.OriginalObject.Answer | biddingSymbols"></span>
+                                        <div class="bid-description-header">
+                                            <span class="glyphicon glyphicon-pencil" data-ng-click="biddingSystemCtrl.selectedSequenceMode ='editSelectedSequence'" title="edit"></span>
+                                            <span class="glyphicon glyphicon-remove" data-ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(biddingSystemTreeView.currentNode.OriginalObject)" title="remove"></span>
+                                        </div>
+                                        <strong>Description:</strong>
+                                        <span class="full-bid-description" ng-bind-html="biddingSystemTreeView.currentNode.OriginalObject.Answer | biddingSymbols"></span>
                                     </div>
                                     <div data-ng-show="biddingSystemCtrl.selectedSequenceMode =='editSelectedSequence'">
                                         <form data-ng-submit="biddingSystemCtrl.updateSequence(biddingSystemTreeView.currentNode.OriginalObject); biddingSystemCtrl.endEditingBid()">
-                                            <input type="text" class="form-control" id="currentAnswer" name="currentAnswer" data-ng-model="biddingSystemTreeView.currentNode.OriginalObject.Answer" ng-model-options="{ updateOn: 'submit' }"/>
-                                            <input type="submit" value="Save" class="btn btn-success">
-                                            <input type="button" value="Cancel" class="btn btn-danger" data-ng-click="currentAnswer.$rollbackViewValue(); biddingSystemCtrl.cancelCurrentAnswerEditing()">
+                                            <textarea class="form-control" id="currentAnswer" name="currentAnswer" data-ng-model="biddingSystemTreeView.currentNode.OriginalObject.Answer" ng-model-options="{ updateOn: 'submit' }"></textarea>
+                                            <input type="submit" value="Save" class="btn btn-default">
+                                            <input type="button" value="Cancel" class="btn btn-default" data-ng-click="currentAnswer.$rollbackViewValue(); biddingSystemCtrl.cancelCurrentAnswerEditing()">
                                         </form>
                                     </div>
                                 </div>
-                                <div class="row list-group-item">
-                                    <div class="col-xs-12">
-                                        <a class="btn btn-default" data-ng-click="biddingSystemCtrl.removeBiddingSequenceFromSystem(biddingSystemTreeView.currentNode.OriginalObject)">Remove</a>
-                                        <a class="btn btn-primary" data-ng-click="biddingSystemCtrl.selectedSequenceMode ='editSelectedSequence'">Edit</a>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-12">
+                                <strong>Further sequences:</strong>
                                 <ul>
                                     <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids">
                                         <span ng-bind-html="bid.BidSymbol | biddingSymbols"></span>

@@ -27,12 +27,12 @@
             text = replaceBidsOnPictures(text);
             var bids = text.split(';');
             //var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
-            var result = '<table><tbody><tr><th>N</th><th>S</th>'
+            var result = '<table class="biddingSequenceTable"><tbody><tr class="biddingSequenceHeader"><th>N</th><th>S</th>'
             for (var i = 0; i < bids.length; i++) {
-                if (i % 2 == 0)
+                if (i % 2 === 0)
                     result += '</tr><tr>';
                 var bid = bids[i].split(':');
-                bidToRender = bid.length > 1 ? bid[1] : bid[0];
+                var bidToRender = bid.length > 1 ? bid[1] : bid[0];
                 result += '<td>' + bidToRender + '</td>';
             }
             result += '</tr></tbody></table>';
@@ -45,7 +45,7 @@
         return function (text) {
             if (!text)
                 return text;
-            result = replaceBidsOnPictures(text);
+            var result = replaceBidsOnPictures(text);
             return $sce.trustAsHtml(result);
         };
     }]);

@@ -97,3 +97,24 @@ textarea {
     text-overflow: ellipsis;
 }
 
+.biddingSequenceHeader th {
+    max-width: 100px;
+    text-align: center;
+}
+
+.biddingSequenceTable {
+    width: 100%;
+    text-align: center;
+}
+
+.bid-description-header {
+    text-align: right;
+}
+
+.bid-description-header span {
+    cursor: pointer;
+}
+
+.full-bid-description {
+    white-space: pre-wrap;
+}
