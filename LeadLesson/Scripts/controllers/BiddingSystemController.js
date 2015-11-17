@@ -90,13 +90,14 @@
             if (biddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
                 return;
             biddingSystemService.addBiddingSequenceToSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToAdd.Id)
-                .then(function (addedSequence)
-                {
-                    biddingSystemCtrl.biddingExamples.push(biddingSequenceToAdd);
-                    biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
-                    biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
+                .then(function (addedSequence) {
+                    biddingSystemCtrl.updateSystem();
+                    
+                    //biddingSystemCtrl.biddingExamples.push(biddingSequenceToAdd);
+                    //biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
+                    //biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
 
-                    addBiddingSequence(addedSequence.data);
+                    //addBiddingSequence(addedSequence.data);
                 });
         }
 
