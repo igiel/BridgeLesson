@@ -13,8 +13,7 @@
         var ctrl = this;
         var colors = ['C!', 'D!', 'H!', 'S!', 'NT'];
         var levels = [1, 2, 3, 4, 5, 6, 7];
-        //var specialBids = ['pass', 'dbl', 'rdbl'];
-
+        
         $scope.allBids = [];
         for (var i = 0; i < levels.length; i++) {
             var bids = [];
@@ -25,11 +24,16 @@
         }
         $scope.allBids.push([new Bid('pass'), new Bid('dbl'), new Bid('rdbl')]);
 
-        ctrl.SymbolClicked = function (bid) {
+        ctrl.SymbolClicked = function(bid) {
             if (!$scope.newSequence.Sequence)
                 $scope.newSequence.Sequence = bid.value;
-            else 
-                $scope.newSequence.Sequence = $scope.newSequence.Sequence + ';' + bid.value;
+            else {
+
+                if ($scope.newSequence.Sequence.slice(-1) !== ';')
+                    $scope.newSequence.Sequence += ';';
+
+                $scope.newSequence.Sequence += bid.value;
+            }
         }
     };
 
