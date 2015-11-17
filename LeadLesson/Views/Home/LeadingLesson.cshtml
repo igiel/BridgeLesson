@@ -1,10 +1,11 @@
 ﻿
 <div class="row" ng-app="BridgeLessonModule">
     <div class="col-sm-12">
-
-        <h2>Leading lesson</h2>
-        <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
-
+        <a href="@Url.Action("Index")" class="btn btn-link">Back to the main page</a>
+        <div class="subpage-header">
+            <h2>Leading lesson</h2>
+            <p class="lead">This site would help you to learn how to lead UDCA in the easy and friendly way</p>
+        </div>
         <form name="leadExamplesForm" ng-submit="submit()" ng-controller="LeadController">
             <h3>Are you sure that you know how to lead from all combinations below? </h3>
             <p>Please indicate the correct card in each one and click check. We assume that we lead in the same way on color and NT games.</p>
