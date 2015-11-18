@@ -7,10 +7,29 @@
         </div>
         <div class="text-center">
             <p>What would you like to practice?</p>
-            
+
             <a href="@Url.Action("LeadingLesson")" class="btn btn-navigate" title="Leading is choosing the card that should be played from given card configuration. It helps partner to understand your values in this color">Leading lesson</a>
             <a href="@Url.Action("BiddingLesson")" class="btn btn-navigate" title="Having the same agreements with your partner in bidding helps you to play the best possible contract">Bidding lesson</a>
         </div>
-        
-     </div>
+
+        @*<input type="text" id="myinput"/>
+        <button type="submit" onclick="reverseAndDisplay()">Check it</button>
+        <div id="displayArea"></div>*@
+
+        @*<script type="text/javascript">
+            var colors = ['purple', 'orange', 'green', 'purple', 'red'];
+
+            function reverseAndDisplay() {
+               var b = $('#myinput').val().split('').reverse();
+                for (var i = 0; i < b.length; i++) {
+                    setTimeout(abc, i * 1000, b[i], colors[i], i * 1000);
+                };
+            }
+
+            function abc(letter, color, delay) {
+
+                $('#displayArea').append('<span style="color:' + color + ';font-size:20px">' + letter + '</span>').delay(delay);
+            };
+        </script>*@
+    </div>
 </div>
