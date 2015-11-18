@@ -5,13 +5,13 @@
         <li class="list-group-item">
             <div class="row container-fluid">
                 <div class="col-sm-6"><span ng-bind-html="problem.Sequence | bidding"></span></div>
-                <div class="col-sm-6" ng-show="biddingCtrl.isChecked">{{problem.Answer}}</div>
+                <div class="col-sm-6" ng-show="biddingCtrl.isChecked"><span ng-bind-html="problem.answer | biddingSymbols"></span> {{problem.Answer}}</div>
             </div>
         </li>
     </ul>
     <p ng-bind="biddingCtrl.validationMessage"></p>
     <!--<button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedBack()" ng-disabled="!biddingCtrl.canProceedBack">Previous problem</button>-->
-    <button type="submit" class="btn btn-primary" ng-disabled="biddingCtrl.isChecked">Check it</button>
+    <button type="submit" class="btn btn-primary" ng-hide="biddingCtrl.isChecked">Check it</button>
     <!--<button type="button" class="btn btn-primary" ng-click="biddingCtrl.proceedToTheNext()" ng-disabled="!biddingCtrl.canProceedFurther">Next problem</button>-->
     <div id="IsAnswerCorrectDiv" ng-show="biddingCtrl.isChecked">
         Did you know that? <br />
