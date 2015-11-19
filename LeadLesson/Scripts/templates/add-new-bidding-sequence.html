@@ -47,11 +47,16 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <p>Create your bidding sequence with few clicks</p>
-                        <label>
-                            Sequence:
+                        <div>
+                            <label>
+                                Sequence:
+                                <span class="glyphicon glyphicon-remove-circle " title="clear sequence"
+                                      ng-click="newSequence.Sequence = ''" style="cursor:pointer"></span>
+                            </label>
                             <input type="text" ng-model="newSequence.Sequence" class="form-control" />
-                            <span ng-bind-html="newSequence.Sequence | bidding"></span>
-                        </label>
+                            
+                        </div>
+                        <span ng-bind-html="newSequence.Sequence | bidding"></span>
                     </div>
                     <div class="col-sm-8">
                         <table class="biddingBox">
@@ -65,9 +70,21 @@
                         </table>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <strong>Meaning:</strong>
+                        <input type="text" class="form-control" id="" name="" data-ng-model="newSequence.Answer" />
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <a class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> OK</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal"
+                        ng-disabled="!newSequence.Sequence || !newSequence.Answer" ng-click="biddingSystemCtrl.createNewSequence()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Create new sequence!
+                </button>
+                <a class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
             </div>
         </div>
     </div>
