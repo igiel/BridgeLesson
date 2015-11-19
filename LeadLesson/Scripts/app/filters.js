@@ -24,10 +24,10 @@
         return function (text) {
             if (!text)
                 return text;
-            text = replaceBidsOnPictures(text);
-            var bids = text.split(';');
+            text = text.split(/[-,;]+/);
+            var bids = replaceBidsOnPicturesInArray(text);
             //var result = '<table><tbody><tr><th>N</th><th>E</th><th>S</th><th>W</th>'
-            var result = '<table class="biddingSequenceTable"><tbody><tr class="biddingSequenceHeader"><th>N</th><th>S</th>'
+            var result = '<table class="biddingSequenceTable"><tbody><tr class="biddingSequenceHeader"><th>N</th><th>S</th>';
             for (var i = 0; i < bids.length; i++) {
                 if (i % 2 === 0)
                     result += '</tr><tr>';
@@ -49,6 +49,17 @@
             return $sce.trustAsHtml(result);
         };
     }]);
+
+
+    function replaceBidsOnPicturesInArray(text) {
+        if ($.isArray(text)) {
+            var newArray = [];
+            text.forEach(function (el) { newArray.push(replaceBidsOnPictures(el)); });
+            return newArray;
+        }
+        else return replaceBidsOnPictures();
+
+    }
 
     function replaceBidsOnPictures(text) {
         var a = text.replace(new RegExp('H!', 'g'), heart_icon).replace(new RegExp('C!', 'g'), club_icon);
