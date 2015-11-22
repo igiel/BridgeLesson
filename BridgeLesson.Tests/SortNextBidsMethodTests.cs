@@ -81,5 +81,27 @@ namespace BridgeLesson.Tests
             Assert.AreEqual(rootBid.NextBids[0].NextBids[1], secondBid);
             Assert.AreEqual(rootBid.NextBids[0].NextBids[2], thirdBid);
         }
+
+        [TestMethod]
+        public void SortNextBidsWithNt()
+        {
+            var firstLevelBid = new Bid(null, null);
+            var firstBid = new Bid("1C!;1NT", null);
+            var secondBid = new Bid("1C!; 2D!", null);
+            var thirdBid = new Bid("1C!;2H!", null);
+
+            var rootBid = new Bid(null, null);
+
+            firstLevelBid.NextBids.Add(secondBid);
+            firstLevelBid.NextBids.Add(thirdBid);
+            firstLevelBid.NextBids.Add(firstBid);
+
+            rootBid.NextBids.Add(firstLevelBid);
+            rootBid.SortNextBids();
+
+            Assert.AreEqual(rootBid.NextBids[0].NextBids[0], firstBid);
+            Assert.AreEqual(rootBid.NextBids[0].NextBids[1], secondBid);
+            Assert.AreEqual(rootBid.NextBids[0].NextBids[2], thirdBid);
+        }
     }
 }
