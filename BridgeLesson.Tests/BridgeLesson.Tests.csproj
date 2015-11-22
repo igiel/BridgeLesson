@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LeadLesson\BridgeLesson.csproj">
+    <ProjectReference Include="..\BridgeLesson\BridgeLesson.csproj">
       <Project>{55579b3a-810c-4a38-a91b-3b51a5a5e821}</Project>
       <Name>BridgeLesson</Name>
     </ProjectReference>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridgeLesson", "LeadLesson\BridgeLesson.csproj", "{55579B3A-810C-4A38-A91B-3B51A5A5E821}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridgeLesson", "BridgeLesson\BridgeLesson.csproj", "{55579B3A-810C-4A38-A91B-3B51A5A5E821}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridgeLesson.Tests", "BridgeLesson.Tests\BridgeLesson.Tests.csproj", "{C5F539BE-2CC8-4027-964B-7D26C1C6EEDA}"
 EndProject
