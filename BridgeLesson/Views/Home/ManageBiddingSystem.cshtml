@@ -73,10 +73,9 @@
                                 <br />
                             </div>
                             <div class="col-xs-12">
-                                
                                 <strong>Further sequences:</strong>
                                 <ul>
-                                    <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids">
+                                    <li class="list-group-item" ng-repeat="bid in biddingSystemTreeView.currentNode.NextBids" ng-if="bid.OriginalObject.Answer">
                                         <span ng-bind-html="bid.BidSymbol | biddingSymbols"></span>
                                         <span class="glyphicon glyphicon-arrow-right"></span>
                                         <span ng-bind-html="bid.OriginalObject.Answer | biddingSymbols"></span>
