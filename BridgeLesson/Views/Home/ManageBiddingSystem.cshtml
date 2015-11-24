@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Runtime.Versioning
+
 <div class="row" ng-app="BridgeLessonModule">
     <div class="col-sm-12">
         <a href="@Url.Action("BiddingLesson")" class="btn btn-link">Back to the bidding page</a>
@@ -7,32 +8,42 @@
             <p>You can check and verify your bidding system details here</p>
         </div>
         <div ng-controller="BiddingSystemController as biddingSystemCtrl">
-            <div class="well row">
-                <div class="col-md-4">
-                    <span>Please select system:</span>
-                    <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" class="form-control"
-                            ng-change="biddingSystemCtrl.updateSystem(); biddingSystemTreeView.currentNode = null"
-                            ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
-                        <option value="">Choose system</option>
-                    </select>
+            <div class="row">
+                <div class="col-md-12 well">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <span>Please select system:</span>
+                            <select name="" id="" ng-model="biddingSystemCtrl.selectedSystem" class="form-control"
+                                    ng-change="biddingSystemCtrl.updateSystem(); biddingSystemTreeView.currentNode = null"
+                                    ng-options="system.Name for system in biddingSystemCtrl.allSystems track by system.Id">
+                                <option value="">Choose system</option>
+                            </select>
 
-                    <div>
-                        <add-new-system-control></add-new-system-control>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
-                        <strong>System description:</strong><br />
-                        <i>{{biddingSystemCtrl.selectedSystem.Description}}</i>
+                            <div>
+                                <add-new-system-control></add-new-system-control>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
+                                <strong>@BridgeLesson.Resources.Gui.LabelSystemDescription:</strong><br />
+                                <i>{{biddingSystemCtrl.selectedSystem.Description}}</i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div ng-if="biddingSystemCtrl.selectedSystem != undefined">
                 <div class="row">
-                    <add-new-bidding-sequence></add-new-bidding-sequence>
+                    <div class="col-md-12">
+                        <h3>Extend system:</h3>
+                        <add-new-bidding-sequence></add-new-bidding-sequence>
+                    </div>
                 </div>
                 <br />
                 <div class="row">
+                    <div class="col-md-12">
+                        <h3>Check existing sequences:</h3>
+                    </div>
                     <div class="col-xs-6">
                         <div data-tree-id="biddingSystemTreeView"
                              data-angular-treeview="true"
