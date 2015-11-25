@@ -120,4 +120,7 @@
   <data name="LabelSystemDescription" xml:space="preserve">
     <value>System description</value>
   </data>
+  <data name="Sequence" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
 </root>

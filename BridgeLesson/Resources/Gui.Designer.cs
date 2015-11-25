@@ -68,5 +68,14 @@ namespace BridgeLesson.Resources {
                 return ResourceManager.GetString("LabelSystemDescription", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence.
+        /// </summary>
+        public static string Sequence {
+            get {
+                return ResourceManager.GetString("Sequence", resourceCulture);
+            }
+        }
     }
 }

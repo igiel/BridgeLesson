@@ -13,7 +13,8 @@
             .then(function (allSystems) {
                 biddingSystemCtrl.allSystems = allSystems.data;
             });
-                
+
+
         biddingSystemService.getBiddingSequences()
             .then(function (sequences) {
                 biddingSystemCtrl.allBiddingExamples = sequences.data;
