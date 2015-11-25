@@ -15,6 +15,11 @@
             });
 
 
+        biddingSystemService.getBiddingConventions()
+            .then(function (allConventions) {
+                biddingSystemCtrl.allConventions = allConventions.data;
+            });
+
         biddingSystemService.getBiddingSequences()
             .then(function (sequences) {
                 biddingSystemCtrl.allBiddingExamples = sequences.data;
@@ -92,16 +97,21 @@
             if (biddingSequenceToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
                 return;
             biddingSystemService.addBiddingSequenceToSystem(biddingSystemCtrl.selectedSystem.Id, biddingSequenceToAdd.Id)
-                .then(function (addedSequence) {
+                .then(function (addedConvention) {
                     biddingSystemCtrl.updateSystem();
-                    
-                    //biddingSystemCtrl.biddingExamples.push(biddingSequenceToAdd);
-                    //biddingSystemCtrl.selectedBiddingSequenceToAdd = '';
-                    //biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
-
-                    //addBiddingSequence(addedSequence.data);
                 });
         }
+
+        biddingSystemCtrl.addConventionToSystem = function (biddingConventionToAdd) {
+            if (biddingConventionToAdd == undefined || biddingSystemCtrl.selectedSystem == undefined)
+                return;
+            biddingSystemService.addBiddingConventionToSystem(biddingSystemCtrl.selectedSystem.Id, biddingConventionToAdd.Id)
+                .then(function (addedSequence) {
+                    biddingSystemCtrl.updateSystem();
+                });
+        }
+        
+
 
         biddingSystemCtrl.removeBiddingSequenceFromSystem = function (biddingSequenceToRemove) {
             if (biddingSequenceToRemove == undefined || biddingSystemCtrl.selectedSystem == undefined)

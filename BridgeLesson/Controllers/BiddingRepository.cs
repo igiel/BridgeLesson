@@ -58,6 +58,28 @@ namespace LeadLesson.Controllers
             return biddingSystemSequence;
         }
 
+        //todo: keep reference to convention in system
+        public BiddingConvention AddBiddingConventionToSystem(long biddingSystemId, long biddingConventionId)
+        {
+            var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
+
+            if (biddingSystem == null)
+                throw new ArgumentException("Bidding system with id " + biddingSystemId + " doesn't exist.");
+
+            var convention = db.BiddingConventions.Find(biddingConventionId);
+
+            foreach (var biddingSequence in convention.BiddingSequences)
+            {
+               if (biddingSystem.BiddingSystemSequences.Any(bss => bss.BiddingSequence.Id == biddingSequence.Id))
+                   continue;
+                biddingSystem.AddBiddingSequence(biddingSequence);
+            }
+
+            db.SaveChanges();
+
+            return convention;
+        }
+
         public void RemoveBiddingSequence(long biddingSystemId, long biddingSequenceId)
         {
             var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);
@@ -108,5 +130,6 @@ namespace LeadLesson.Controllers
             db.SaveChanges();
             return biddingSystem;
         }
+
     }
 }

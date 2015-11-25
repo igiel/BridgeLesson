@@ -204,7 +204,7 @@
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
     <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Controllers\BiddingConventionsController.cs" />
+    <Compile Include="Controllers\BiddingConventionController.cs" />
     <Compile Include="Controllers\BiddingSequenceController.cs" />
     <Compile Include="Migrations\201511021206358_initial.cs" />
     <Compile Include="Migrations\201511021206358_initial.Designer.cs">

@@ -14,14 +14,16 @@ using LeadLesson.Models;
 
 namespace BridgeLesson.Controllers
 {
-    public class BiddingConventionsController : ApiController
+    public class BiddingConventionController : ApiController
     {
-        private BridgeLessonDbContext db = new BridgeLessonDbContext();
+        private readonly BridgeLessonDbContext db = new BridgeLessonDbContext();
 
         // GET: api/BiddingConventions
-        public IQueryable<BiddingConvention> GetBiddingConventions()
+        public async Task<IEnumerable<BiddingConvention>> GetBiddingConventions()
         {
-            return db.BiddingConventions;
+
+            var biddingConventions = await db.BiddingConventions.ToListAsync();
+            return biddingConventions;
         }
 
         // GET: api/BiddingConventions/5

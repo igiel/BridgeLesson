@@ -4,6 +4,7 @@
 
             var biddingSystemUrlBase = '/api/BiddingSystem/';
             var biddingSequenceUrlBase = '/api/BiddingSequence/';
+            var biddingConventionUrlBase = '/api/BiddingConvention/';
 
             var dataFactory = {};
 
@@ -35,6 +36,13 @@
                     url: biddingSystemUrlBase + 'AddBiddingSequenceToSystem/' + biddingSystemId + '/' + biddingSequenceId
                 });
             };
+            dataFactory.addBiddingConventionToSystem = function (biddingSystemId, biddingConventionId) {
+                return $http({
+                    method: 'PUT',
+                    url: biddingSystemUrlBase + 'AddBiddingConventionToSystem/' + biddingSystemId + '/' + biddingConventionId
+                });
+            };
+            
 
             dataFactory.removeBiddingSequenceFromSystem = function (biddingSystemId, biddingSequenceId) {
                 return $http({
@@ -50,6 +58,12 @@
                 );
             };
             
+            dataFactory.getBiddingConventions = function () {
+                return $http.get(
+                    biddingConventionUrlBase 
+                );
+            };
+
             dataFactory.getBiddingSystemAsParentChild = function (systemId) {
                 return $http.get(biddingSystemUrlBase+'AsParentChild/'+systemId);
             };

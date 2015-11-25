@@ -68,6 +68,15 @@ namespace LeadLesson.Controllers
             return Ok(biddingSystemSequence.BiddingSequence);
         }
 
+        [HttpPut]
+        [Route("api/BiddingSystem/AddBiddingConventionToSystem/{biddingSystemId}/{biddingConventionId}")]
+        public IHttpActionResult AddBiddingConventionToSystem(long biddingSystemId, long biddingConventionId)
+        {
+            var biddingConvention = this.biddingRepository.AddBiddingConventionToSystem(biddingSystemId, biddingConventionId);
+            return Ok(biddingConvention);
+        }
+        
+
         [HttpDelete]
         [Route("api/BiddingSystem/RemoveBiddingSequenceFromSystem/{biddingSystemId}/{biddingSequenceId}")]
         public void RemoveBiddingSequenceFromSystem(long biddingSystemId, long biddingSequenceId)
