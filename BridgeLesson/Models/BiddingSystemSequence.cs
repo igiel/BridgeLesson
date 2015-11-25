@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace LeadLesson.Models
+namespace BridgeLesson.Models
 {
     [DebuggerDisplay("BiddingSystem = {BiddingSystem}, BiddingSequence={BiddingSequence}")]
     public class BiddingSystemSequence : BaseEntity

@@ -1,4 +1,5 @@
-﻿using LeadLesson.Models;
+﻿using BridgeLesson.Models;
+using LeadLesson.Models;
 
 namespace LeadLesson.ViewModels
 {

@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using BridgeLesson.Models;
 
 namespace LeadLesson.Models
 {
@@ -18,5 +19,19 @@ namespace LeadLesson.Models
         public DbSet<BiddingSequence> BiddingSequences  { get; set; }
         public DbSet<BiddingSystem> BiddingSystems { get; set; }
         public DbSet<BiddingSystemSequence> BiddingSystemSequences { get; set; }
+        public DbSet<BiddingConvention> BiddingConventions { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BiddingConvention>()
+            .HasMany(t => t.BiddingSequences)
+            .WithMany()
+            .Map(m =>
+            {
+                m.ToTable("BiddingConventionBiddingSequence");
+                m.MapLeftKey("BiddingConvention_Id");
+                m.MapRightKey("BiddingSequence_Id");
+            });
+        }
     }
 }

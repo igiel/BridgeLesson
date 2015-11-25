@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace LeadLesson.Models
+namespace BridgeLesson.Models
 {
     [DebuggerDisplay("Name = {Name}, BiddingSystemSequences = {BiddingSystemSequences.Count}")]
     public class BiddingSystem : BaseEntity

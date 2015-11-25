@@ -1,6 +1,7 @@
 ﻿using System;
 using LeadLesson.Models;
 using System.Collections.Generic;
+using BridgeLesson.Models;
 
 namespace LeadLesson.ViewModels
 {

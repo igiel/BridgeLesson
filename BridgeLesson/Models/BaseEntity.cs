@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LeadLesson.Models
+namespace BridgeLesson.Models
 {
     public class BaseEntity
     {
