@@ -1,7 +1,6 @@
 ﻿using BridgeLesson.Models;
-using LeadLesson.Models;
 
-namespace LeadLesson.ViewModels
+namespace BridgeLesson.ViewModels
 {
     public class CreateBiddingSystemViewModel
     {

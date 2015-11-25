@@ -1,10 +1,9 @@
-﻿using LeadLesson.Models;
-using LeadLesson.Utils;
-using LeadLesson.ViewModels;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using BridgeLesson.Models;
+using BridgeLesson.Utils;
+using BridgeLesson.ViewModels;
 
 namespace BridgeLesson.Tests
 {

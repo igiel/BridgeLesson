@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LeadLesson.Models
+namespace BridgeLesson.Models
 {
     // Models returned by AccountController actions.
     public class ExternalLoginConfirmationViewModel

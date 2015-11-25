@@ -1,14 +1,14 @@
 ﻿using System;
+using BridgeLesson.Models;
+using BridgeLesson.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using LeadLesson.Models;
-using LeadLesson.Providers;
 
-namespace LeadLesson
+namespace BridgeLesson
 {
     public partial class Startup
     {

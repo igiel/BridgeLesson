@@ -1,4 +1,4 @@
-namespace LeadLesson.Areas.HelpPage.ModelDescriptions
+namespace BridgeLesson.Areas.HelpPage.ModelDescriptions
 {
     public class DictionaryModelDescription : KeyValuePairModelDescription
     {

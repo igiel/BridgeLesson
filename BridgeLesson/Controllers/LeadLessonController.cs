@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     public class LeadLessonController : Controller
     {

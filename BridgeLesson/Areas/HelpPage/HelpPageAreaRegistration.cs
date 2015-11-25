@@ -1,7 +1,8 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using BridgeLesson.Areas.HelpPage.App_Start;
 
-namespace LeadLesson.Areas.HelpPage
+namespace BridgeLesson.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

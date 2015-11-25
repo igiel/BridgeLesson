@@ -1,9 +1,10 @@
-﻿using Microsoft.Owin;
+﻿using BridgeLesson;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(LeadLesson.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace LeadLesson
+namespace BridgeLesson
 {
     public partial class Startup
     {

@@ -1,10 +1,9 @@
-﻿using LeadLesson.Models;
-using LeadLesson.Utils;
-using LeadLesson.ViewModels;
-using System.Web.Http;
+﻿using System.Web.Http;
 using BridgeLesson.Models;
+using BridgeLesson.Utils;
+using BridgeLesson.ViewModels;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     public class BiddingSystemController : ApiController
     {

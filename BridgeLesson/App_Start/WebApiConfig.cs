@@ -1,8 +1,8 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
-using System.Net.Http.Headers;
 
-namespace LeadLesson
+namespace BridgeLesson
 {
     public static class WebApiConfig
     {

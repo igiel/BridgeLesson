@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace LeadLesson
+namespace BridgeLesson
 {
     public class RouteConfig
     {

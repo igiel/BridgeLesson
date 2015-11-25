@@ -11,10 +11,11 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using LeadLesson.Areas.HelpPage.ModelDescriptions;
-using LeadLesson.Areas.HelpPage.Models;
+using BridgeLesson.Areas.HelpPage.ModelDescriptions;
+using BridgeLesson.Areas.HelpPage.Models;
+using BridgeLesson.Areas.HelpPage.SampleGeneration;
 
-namespace LeadLesson.Areas.HelpPage
+namespace BridgeLesson.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

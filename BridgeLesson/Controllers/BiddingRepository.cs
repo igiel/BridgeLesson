@@ -1,10 +1,9 @@
-﻿using LeadLesson.Models;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using BridgeLesson.Models;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     internal class BiddingRepository
     {

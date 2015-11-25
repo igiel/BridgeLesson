@@ -1,4 +1,4 @@
-﻿using LeadLesson.ViewModels;
+﻿using BridgeLesson.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BridgeLesson.Tests

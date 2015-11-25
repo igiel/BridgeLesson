@@ -1,8 +1,7 @@
-﻿using LeadLesson.Models;
-using System.Web.Http;
+﻿using System.Web.Http;
 using BridgeLesson.Models;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     public class BiddingSequenceController : ApiController
     {

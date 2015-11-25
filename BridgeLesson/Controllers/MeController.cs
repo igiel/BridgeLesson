@@ -1,10 +1,10 @@
 ﻿using System.Web;
 using System.Web.Http;
+using BridgeLesson.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using LeadLesson.Models;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     [System.Web.Mvc.Authorize]
     public class MeController : ApiController

@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using LeadLesson.Areas.HelpPage.ModelDescriptions;
-using LeadLesson.Areas.HelpPage.Models;
+using BridgeLesson.Areas.HelpPage.ModelDescriptions;
+using BridgeLesson.Areas.HelpPage.Models;
 
-namespace LeadLesson.Areas.HelpPage.Controllers
+namespace BridgeLesson.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

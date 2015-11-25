@@ -1,6 +1,6 @@
 using System;
 
-namespace LeadLesson.Areas.HelpPage.ModelDescriptions
+namespace BridgeLesson.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

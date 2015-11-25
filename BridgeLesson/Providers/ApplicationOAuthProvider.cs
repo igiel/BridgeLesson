@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.OAuth;
 
-namespace LeadLesson.Providers
+namespace BridgeLesson.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

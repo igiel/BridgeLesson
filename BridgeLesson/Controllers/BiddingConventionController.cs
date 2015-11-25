@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BridgeLesson.Models;
-using LeadLesson.Models;
 
 namespace BridgeLesson.Controllers
 {

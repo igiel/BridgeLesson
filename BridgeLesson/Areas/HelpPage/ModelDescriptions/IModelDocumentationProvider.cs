@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace LeadLesson.Areas.HelpPage.ModelDescriptions
+namespace BridgeLesson.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

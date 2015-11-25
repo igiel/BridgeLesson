@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace LeadLesson.Areas.HelpPage
+namespace BridgeLesson.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

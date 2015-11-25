@@ -1,12 +1,11 @@
-﻿using LeadLesson.Models;
-using LeadLesson.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using BridgeLesson.Models;
+using BridgeLesson.ViewModels;
 
-namespace LeadLesson.Utils
+namespace BridgeLesson.Utils
 {
     public class BiddingConverter
     {

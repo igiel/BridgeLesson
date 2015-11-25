@@ -1,4 +1,4 @@
-﻿namespace LeadLesson.Models
+﻿namespace BridgeLesson.Models
 {
     // Models returned by MeController actions.
     public class GetViewModel

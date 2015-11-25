@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace LeadLesson.Controllers
+namespace BridgeLesson.Controllers
 {
     //[Authorize]
     public class HomeController : Controller

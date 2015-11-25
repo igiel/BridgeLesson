@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
-using BridgeLesson.Models;
 
-namespace LeadLesson.Models
+namespace BridgeLesson.Models
 {
     public class BridgeLessonDbContext : DbContext
     {

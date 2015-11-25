@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace LeadLesson
+namespace BridgeLesson
 {
     public class FilterConfig
     {

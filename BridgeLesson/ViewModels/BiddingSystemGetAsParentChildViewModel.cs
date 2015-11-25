@@ -1,4 +1,4 @@
-﻿namespace LeadLesson.ViewModels
+﻿namespace BridgeLesson.ViewModels
 {
     public class BiddingSystemGetAsParentChildViewModel
     {

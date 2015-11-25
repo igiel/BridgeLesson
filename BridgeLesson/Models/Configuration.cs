@@ -1,10 +1,10 @@
-﻿namespace LeadLesson.Models
-{
-    using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
-    using System.Data.Entity.Migrations.Model;
-    using System.Data.Entity.SqlServer;
+﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations.Model;
+using System.Data.Entity.SqlServer;
 
+namespace BridgeLesson.Models
+{
     internal sealed class Configuration : DbMigrationsConfiguration<BridgeLessonDbContext>
     {
         public Configuration()

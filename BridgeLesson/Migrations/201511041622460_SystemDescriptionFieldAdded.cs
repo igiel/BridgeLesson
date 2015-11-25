@@ -1,8 +1,7 @@
-namespace LeadLesson.Models
+using System.Data.Entity.Migrations;
+
+namespace BridgeLesson.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class SystemDescriptionFieldAdded : DbMigration
     {
         public override void Up()
