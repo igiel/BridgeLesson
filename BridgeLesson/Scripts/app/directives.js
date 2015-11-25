@@ -23,7 +23,7 @@
     angular.module('BridgeLessonModule').directive('addNewBiddingSequence', function () {
         return {
             restrict: 'E',
-            templateUrl: '/Scripts/templates/add-new-bidding-sequence.cshtml'
+            templateUrl: '/Scripts/templates/add-new-bidding-sequence.html'
         };
     });
 

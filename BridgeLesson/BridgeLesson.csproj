@@ -315,7 +315,7 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <None Include="Scripts\templates\add-new-bidding-sequence.cshtml" />
+    <Content Include="Scripts\templates\add-new-bidding-sequence.html" />
     <None Include="Scripts\templates\add-new-system-control.cshtml" />
     <None Include="Scripts\templates\bidding-quiz-results.cshtml" />
     <None Include="Scripts\templates\bidding-quiz.cshtml" />
