@@ -50,7 +50,7 @@ namespace BridgeLesson
 
             bundles.Add(new StyleBundle("~/Content/angularTreeView").Include(
                  "~/Content/angular.treeview.css"));
-            
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
