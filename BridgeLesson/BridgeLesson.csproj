@@ -315,10 +315,10 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <Content Include="Scripts\templates\add-new-bidding-sequence.html" />
-    <Content Include="Scripts\templates\add-new-system-control.html" />
-    <Content Include="Scripts\templates\bidding-quiz-results.html" />
-    <Content Include="Scripts\templates\bidding-quiz.html" />
+    <Content Include="Scripts\templates\add-new-bidding-sequence.cshtml" />
+    <Content Include="Scripts\templates\add-new-system-control.cshtml" />
+    <Content Include="Scripts\templates\bidding-quiz-results.cshtml" />
+    <Content Include="Scripts\templates\bidding-quiz.cshtml" />
     <Content Include="Scripts\controllers\BiddingSystemController.js" />
     <Content Include="Scripts\controllers\LeadController.js" />
     <Content Include="Scripts\bootstrap.js" />
