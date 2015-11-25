@@ -2,21 +2,21 @@
     angular.module('BridgeLessonModule').directive('biddingQuiz', function() {
         return {
             restrict: 'E',
-            templateUrl: '/Scripts/templates/bidding-quiz.cshtml'
+            templateUrl: '/Scripts/templates/bidding-quiz.html'
         };
     });
 
     angular.module('BridgeLessonModule').directive('biddingQuizResults', function() {
         return {
             restrict: 'E',
-            templateUrl: '/Scripts/templates/bidding-quiz-results.cshtml'
+            templateUrl: '/Scripts/templates/bidding-quiz-results.html'
         };
     });
 
     angular.module('BridgeLessonModule').directive('addNewSystemControl', function() {
         return {
             restrict: 'E',
-            templateUrl: '/Scripts/templates/add-new-system-control.cshtml'
+            templateUrl: '/Scripts/templates/add-new-system-control.html'
         };
     });
 
