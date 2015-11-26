@@ -26,9 +26,9 @@ namespace BridgeLesson.Controllers
         {
             return View();
         }
-        public ActionResult addNewBiddingSequence()
+        public PartialViewResult addNewBiddingSequence()
         {
-            return View();
+            return PartialView("addNewBiddingSequence");
         }
 
         public ActionResult AddConvention()
