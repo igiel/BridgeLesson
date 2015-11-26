@@ -1153,6 +1153,7 @@
     <Content Include="Views\Home\LeadingLesson.cshtml" />
     <Content Include="Views\Home\BiddingLesson.cshtml" />
     <Content Include="Views\Home\ManageBiddingSystem.cshtml" />
+    <Content Include="Views\Home\addNewBiddingSequence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

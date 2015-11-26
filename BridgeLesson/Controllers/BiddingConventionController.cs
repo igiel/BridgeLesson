@@ -26,7 +26,7 @@ namespace BridgeLesson.Controllers
         }
 
         // GET: api/BiddingConventions/5
-        [ResponseType(typeof(BiddingConvention))]
+        [ResponseType(typeof(List<BiddingConvention>))]
         public async Task<IHttpActionResult> GetBiddingConvention(long id)
         {
             BiddingConvention biddingConvention = await db.BiddingConventions.FindAsync(id);

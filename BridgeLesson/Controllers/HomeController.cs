@@ -26,9 +26,12 @@ namespace BridgeLesson.Controllers
         {
             return View();
         }
+        public ActionResult addNewBiddingSequence()
+        {
+            return View();
+        }
+
         
-
-
     }
 
 

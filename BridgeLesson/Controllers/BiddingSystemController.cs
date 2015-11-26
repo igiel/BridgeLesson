@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
+using System.Web.Http.Description;
 using BridgeLesson.Models;
 using BridgeLesson.Utils;
 using BridgeLesson.ViewModels;
@@ -17,6 +19,7 @@ namespace BridgeLesson.Controllers
         }
 
         [HttpGet]
+        [ResponseType(typeof(List<BiddingSequence>))]
         [Route("api/BiddingSystem/{id}")]
         // GET: api/BiddingSystem/5
         public IHttpActionResult Get(int id)
@@ -60,6 +63,7 @@ namespace BridgeLesson.Controllers
         }
 
         [HttpPut]
+        [ResponseType(typeof(BiddingSequence))]
         [Route("api/BiddingSystem/AddBiddingSequenceToSystem/{biddingSystemId}/{biddingSequenceId}")]
         public IHttpActionResult AddBiddingSequenceToSystem(long biddingSystemId, long biddingSequenceId)
         {
@@ -68,6 +72,7 @@ namespace BridgeLesson.Controllers
         }
 
         [HttpPut]
+        [ResponseType(typeof(BiddingConvention))]
         [Route("api/BiddingSystem/AddBiddingConventionToSystem/{biddingSystemId}/{biddingConventionId}")]
         public IHttpActionResult AddBiddingConventionToSystem(long biddingSystemId, long biddingConventionId)
         {
