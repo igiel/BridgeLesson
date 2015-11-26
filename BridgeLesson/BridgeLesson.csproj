@@ -276,7 +276,9 @@
     <Content Include="Scripts\angular\angular.treeview.js" />
     <Content Include="Scripts\angular\angular.treeview.min.js" />
     <Content Include="Scripts\controllers\BiddingQuizController.js" />
+    <Content Include="Scripts\controllers\EditSequenceController.js" />
     <Content Include="Scripts\controllers\BiddingSequenceCreateController.js" />
+    <Content Include="Scripts\controllers\ConventionController.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
     <Content Include="Scripts\app\directives.js" />
@@ -315,7 +317,6 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <Content Include="Scripts\templates\add-new-bidding-sequence.cshtml" />
     <Content Include="Scripts\templates\add-new-system-control.cshtml" />
     <Content Include="Scripts\templates\bidding-quiz-results.cshtml" />
     <Content Include="Scripts\templates\bidding-quiz.cshtml" />
@@ -1107,8 +1108,10 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\templates\edit-sequence.html" />
     <Content Include="Scripts\tests\tests.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Views\Home\AddConvention.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

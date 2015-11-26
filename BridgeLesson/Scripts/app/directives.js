@@ -27,5 +27,19 @@
         };
     });
 
+    //todo: modal id should be {{targetModalName}}, not hardcoded editSequenceForm :/
+    angular.module('BridgeLessonModule').directive('editSequence', function () {
+        return {
+            scope: {
+                sequence: '=',
+                targetModalName: '@',
+                finish: '&'
+            },
+            restrict: 'E',
+            templateUrl: '/Scripts/templates/edit-sequence.html'
+        };
+    });
+
+
 }());
 

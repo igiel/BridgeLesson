@@ -31,7 +31,11 @@ namespace BridgeLesson.Controllers
             return View();
         }
 
-        
+        public ActionResult AddConvention()
+        {
+            return View();
+        }
+
     }
 
 

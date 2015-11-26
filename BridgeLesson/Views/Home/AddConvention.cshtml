@@ -1,0 +1,52 @@
+﻿<div class="row" ng-app="BridgeLessonModule">
+    <div class="col-md-12">
+            <a href="@Url.Action("BiddingLesson")" class="btn btn-link">Back to the bidding page</a>
+            <div class="subpage-header">
+                <h2>Add convention</h2>
+                <p>You can create your own convention here. It is beta version by now.</p>
+            </div>
+            <div ng-controller="ConventionController as ctrl">
+                <div class="col-md-12"></div>
+                <div class="alert alert-success" ng-if="ctrl.msg">
+                    {{ctrl.msg}}
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Convention name:<input class="form-control" type="text" ng-model="ctrl.newConvention.Name" /></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Convention description:<textarea class="form-control" type="text" ng-model="ctrl.newConvention.Description"></textarea></label>
+                        </div>
+                    </div>
+                 
+                    <div class="col-xs-12">
+                        <strong>Further sequences:</strong>
+                        <ul>
+                            <li class="list-group-item" ng-repeat="seq in ctrl.newConvention.BiddingSequences track by $index">
+                                <span ng-bind-html="seq.Sequence | biddingSymbols"></span>
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                                <span ng-bind-html="seq.Answer | biddingSymbols"></span>
+                                <div style="float:right" ><span class="glyphicon glyphicon-remove" data-ng-click="ctrl.removeSequence(seq)" title="remove"></span></div>
+                            </li>
+                        </ul>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-success" data-toggle="modal" data-target="#editSequenceForm">Add sequence</a>
+                            <edit-sequence sequence="ctrl.newSequence" finish="ctrl.AddSequence()" targetModalName="'editSequenceForm'"></edit-sequence>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a class="btn btn-success" data-ng-click="ctrl.AddConvention()">Add convention!</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
