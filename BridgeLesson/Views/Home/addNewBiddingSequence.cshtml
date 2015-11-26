@@ -56,18 +56,24 @@
                     Add sequences from convention to system
                 </button>
             </div>
-            </div>
-            <div class="row" ng-if="biddingSystemCtrl.selectedBiddingConventionToAdd">
-                <div class="col-md-12">
-                    <label>
-                        Convention description:<br />
-                        <i> {{biddingSystemCtrl.selectedBiddingConventionToAdd.Description}}</i><br />
-                        <a class="btn btn-link" data-toggle="modal" data-target="#showAllSequences">See all sequences</a>
-                    </label>
-                </div>
+        </div>
+        <div class="row" ng-if="biddingSystemCtrl.selectedBiddingConventionToAdd">
+            <div class="col-md-12">
+                <label>
+                    Convention description:<br />
+                    <i> {{biddingSystemCtrl.selectedBiddingConventionToAdd.Description}}</i><br />
+                    <a class="btn btn-link" data-toggle="modal" data-target="#showAllSequences">See all sequences</a>
+                </label>
             </div>
         </div>
-    
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-link" href="@Url.Action("AddConvention")">Create your own convention!</a>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 <div class="modal fade showAllSequences" tabindex="-1" role="dialog" aria-labelledby="showAllSequences" aria-hidden="true" id="showAllSequences">
     <div class="modal-dialog">
