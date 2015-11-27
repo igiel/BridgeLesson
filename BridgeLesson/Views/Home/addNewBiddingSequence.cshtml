@@ -122,11 +122,13 @@
                             <label>
                                 Sequence:
                                 <span class="glyphicon glyphicon-remove-circle " title="clear sequence"
-                                      ng-click="newSequence.Sequence = ''" style="cursor:pointer"></span>
+                                      ng-click="newSequence.Sequence = ''" style="cursor: pointer"></span>
                             </label>
-                            <input type="text" ng-model="newSequence.Sequence" class="form-control" />
+                            <input type="text" ng-model="newSequence.Sequence" class="form-control"/>
                         </div>
-                        <span ng-bind-html="newSequence.Sequence | bidding"></span>
+                        <div style="min-height: 30px;">
+                            <span ng-bind-html="newSequence.Sequence | bidding"></span>
+                        </div>
                     </div>
                     <div class="col-sm-8">
                         <table class="biddingBox">
