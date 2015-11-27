@@ -1111,7 +1111,7 @@
     <Content Include="Scripts\templates\edit-sequence.html" />
     <Content Include="Scripts\tests\tests.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Views\Home\AddConvention.cshtml" />
+    <Content Include="Views\Home\AddConvention.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
