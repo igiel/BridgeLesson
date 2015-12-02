@@ -15,6 +15,10 @@
 
 
         ctrl.AddConvention = function () {
+            if ($.isEmptyObject(ctrl.newConvention.BiddingSequences))
+                if (!confirm("No sequences added. Are you sure to create convention?"))
+                    return;
+            
             biddingSystemService.addConvention(ctrl.newConvention)
                 .then(function (success) {
                     clearConvention();
