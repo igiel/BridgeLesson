@@ -63,8 +63,11 @@
 
     function replaceBidsOnPictures(text) {
         var a = text.replace(new RegExp('H!', 'g'), heart_icon).replace(new RegExp('C!', 'g'), club_icon);
-        var c  = a.replace(new RegExp('S!', 'g'), spade_icon);
-        return c.replace(new RegExp('D!', 'g'), diamond_icon);
+        var c  = a.replace(new RegExp('S!', 'g'), spade_icon).replace(new RegExp('D!', 'g'), diamond_icon);
+        var d = c.replace(new RegExp('!H', 'g'), heart_icon).replace(new RegExp('!C', 'g'), club_icon);
+        var e  = d.replace(new RegExp('!S', 'g'), spade_icon).replace(new RegExp('!D', 'g'), diamond_icon);
+        
+        return e;
     }
 
     function replaceAll(str, find, replace) {

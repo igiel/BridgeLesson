@@ -206,6 +206,7 @@
     <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
     <Compile Include="Controllers\BiddingConventionController.cs" />
     <Compile Include="Controllers\BiddingSequenceController.cs" />
+    <Compile Include="Controllers\ConventionsController.cs" />
     <Compile Include="Migrations\201511021206358_initial.cs" />
     <Compile Include="Migrations\201511021206358_initial.Designer.cs">
       <DependentUpon>201511021206358_initial.cs</DependentUpon>
@@ -1157,6 +1158,11 @@
     <Content Include="Views\Home\BiddingLesson.cshtml" />
     <Content Include="Views\Home\ManageBiddingSystem.cshtml" />
     <Content Include="Views\Home\addNewBiddingSequence.cshtml" />
+    <Content Include="Views\Conventions\Create.cshtml" />
+    <Content Include="Views\Conventions\Delete.cshtml" />
+    <Content Include="Views\Conventions\Details.cshtml" />
+    <Content Include="Views\Conventions\Edit.cshtml" />
+    <Content Include="Views\Conventions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
