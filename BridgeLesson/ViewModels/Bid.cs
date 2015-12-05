@@ -39,12 +39,12 @@ namespace BridgeLesson.ViewModels
         {
             if (x == null && y == null)
                 return 0;
-            if (x == null || x.BidSymbol.Length<3)
+            if (x == null || x.BidSymbol.Length<2)
                 return -1;
-            if (y == null || y.BidSymbol.Length < 3)
+            if (y == null || y.BidSymbol.Length < 2)
                 return 1;
-            var xBid = x.BidSymbol.Substring(2).Replace("pass", "-");
-            var yBid = y.BidSymbol.Substring(2).Replace("pass", "-");
+            var xBid = x.BidSymbol.Replace(" ","").Replace("pass", "-");
+            var yBid = y.BidSymbol.Replace(" ","").Replace("pass", "-");
 
             //Luckly, [C]lub, [D]iamond, [H]eart, [S]spade, [NT] is an alphabetical order :)
             //And Level is alphabetial also
