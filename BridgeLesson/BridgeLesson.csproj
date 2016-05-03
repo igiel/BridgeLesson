@@ -280,6 +280,7 @@
     <Content Include="Scripts\controllers\EditSequenceController.js" />
     <Content Include="Scripts\controllers\BiddingSequenceCreateController.js" />
     <Content Include="Scripts\controllers\ConventionController.js" />
+    <Content Include="Scripts\directives\systemEditor.js" />
     <Content Include="Scripts\services\biddingSystemService.js" />
     <Content Include="Scripts\services\leadExamplesService.js" />
     <Content Include="Scripts\app\directives.js" />
@@ -1110,6 +1111,7 @@
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
     <Content Include="Scripts\templates\edit-sequence.html" />
+    <Content Include="Scripts\templates\systemEditor.html" />
     <Content Include="Scripts\tests\tests.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Home\AddConvention.cshtml" />

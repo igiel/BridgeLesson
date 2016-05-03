@@ -29,6 +29,7 @@ namespace BridgeLesson
             bundles.Add(new ScriptBundle("~/bundles/scripts")
                 .IncludeDirectory("~/Scripts/controllers", "*.js", true)
                 .IncludeDirectory("~/Scripts/services", "*.js", true)
+                .IncludeDirectory("~/Scripts/directives", "*.js", true)
                 //.IncludeDirectory("~/Scripts/templates", "*.html", true)
                 );
 

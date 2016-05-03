@@ -20,13 +20,13 @@
                 biddingSystemCtrl.allConventions = allConventions.data;
             });
 
-        biddingSystemService.getBiddingSequences()
+            biddingSystemService.getBiddingSequences()
             .then(function (sequences) {
                 biddingSystemCtrl.allBiddingExamples = sequences.data;
                 biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.allBiddingExamples;
              });
         
-        biddingSystemCtrl.updateSystem = function () {
+            biddingSystemCtrl.updateSystem = function () {
             if (biddingSystemCtrl.selectedSystem == undefined)
             {
                 biddingSystemCtrl.biddingExamples = null;
@@ -41,8 +41,9 @@
 
            biddingSystemService.getBiddingSystemAsParentChild(biddingSystemCtrl.selectedSystem.Id)
                 .then(function (rootBid) {
-                biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
-           });
+                    biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
+                   setCollapseLevel(0, 0, biddingSystemCtrl.allBiddingExamplesAsParentChild.nextBids);
+               });
 
         };
         
@@ -140,6 +141,15 @@
             biddingSystemCtrl.allBiddingExamplesAsParentChild.RootBid.NextBids.push(sequenceToAdd);
 
         }
+
+        function setCollapseLevel(level, currentLevel, nextBids) {
+            if (currentLevel >= level) {
+                for (var i = 0; i < nextBids.length; i++) {
+                    setCollapseLevel(level, ++currentLevel, nextBids[i].NextBids);
+                }
+            };
+        }
+        
     };
 
     biddingSystemController.$inject = ['$scope', 'biddingSystemService'];
