@@ -56,8 +56,7 @@ namespace BridgeLesson.Controllers
 
             return biddingSystemSequence;
         }
-
-        //todo: keep reference to convention in system
+        
         public BiddingConvention AddBiddingConventionToSystem(long biddingSystemId, long biddingConventionId)
         {
             var biddingSystem = db.BiddingSystems.FirstOrDefault(bsys => bsys.Id == biddingSystemId);

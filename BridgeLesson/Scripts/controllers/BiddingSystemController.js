@@ -109,6 +109,7 @@
             biddingSystemService.addBiddingConventionToSystem(biddingSystemCtrl.selectedSystem.Id, biddingConventionToAdd.Id)
                 .then(function (addedSequence) {
                     biddingSystemCtrl.updateSystem();
+                    ctrl.msg = 'Convention added!';
                 });
         }
         

@@ -36,6 +36,11 @@ namespace BridgeLesson.Models
             if (BiddingSystemConventions == null)
                 BiddingSystemConventions = new List<BiddingSystemConvention>();
 
+            var existingConvention =
+                BiddingSystemConventions.FirstOrDefault(bsc => bsc.BiddingConvention.Id == biddingConvention.Id);
+            if (existingConvention != null)
+                return existingConvention;
+
             var biddingSystemConvention = new BiddingSystemConvention(this, biddingConvention);
             BiddingSystemConventions.Add(biddingSystemConvention);
 
