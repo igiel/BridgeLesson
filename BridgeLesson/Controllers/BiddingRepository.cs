@@ -67,12 +67,13 @@ namespace BridgeLesson.Controllers
 
             var convention = db.BiddingConventions.Find(biddingConventionId);
 
-            foreach (var biddingSequence in convention.BiddingSequences)
-            {
-               if (biddingSystem.BiddingSystemSequences.Any(bss => bss.BiddingSequence.Id == biddingSequence.Id))
-                   continue;
-                biddingSystem.AddBiddingSequence(biddingSequence);
-            }
+            biddingSystem.AddSystemConvention(convention);
+            //foreach (var biddingSequence in convention.BiddingSequences)
+            //{
+            //   if (biddingSystem.BiddingSystemSequences.Any(bss => bss.BiddingSequence.Id == biddingSequence.Id))
+            //       continue;
+            //    biddingSystem.AddBiddingSequence(biddingSequence);
+            //}
 
             db.SaveChanges();
 

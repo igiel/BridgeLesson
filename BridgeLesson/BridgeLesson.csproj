@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201511251229597_BiddingConventionAdd.Designer.cs">
       <DependentUpon>201511251229597_BiddingConventionAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605050913051_bridgeConventionToSystemRelation.cs" />
+    <Compile Include="Migrations\201605050913051_bridgeConventionToSystemRelation.Designer.cs">
+      <DependentUpon>201605050913051_bridgeConventionToSystemRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BiddingSequence.cs" />
     <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
@@ -243,6 +247,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BiddingConvention.cs" />
     <Compile Include="Models\BiddingSystemSequence.cs" />
+    <Compile Include="Models\BiddingSystemConvention.cs" />
     <Compile Include="Models\BiddingSystem.cs" />
     <Compile Include="Models\BridgeLessonDbContext.cs" />
     <Compile Include="Models\Configuration.cs" />
@@ -1186,6 +1191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511251229597_BiddingConventionAdd.resx">
       <DependentUpon>201511251229597_BiddingConventionAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605050913051_bridgeConventionToSystemRelation.resx">
+      <DependentUpon>201605050913051_bridgeConventionToSystemRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Gui.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
