@@ -17,7 +17,7 @@
     <AssemblyName>BridgeLesson</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -282,6 +282,7 @@
     <Content Include="Scripts\angular\angular.treeview.js" />
     <Content Include="Scripts\angular\angular.treeview.min.js" />
     <Content Include="Scripts\controllers\BiddingQuizController.js" />
+    <Content Include="Scripts\controllers\SystemConventionController.js" />
     <Content Include="Scripts\controllers\EditSequenceController.js" />
     <Content Include="Scripts\controllers\BiddingSequenceCreateController.js" />
     <Content Include="Scripts\controllers\ConventionController.js" />
@@ -1170,6 +1171,7 @@
     <Content Include="Views\Conventions\Details.cshtml" />
     <Content Include="Views\Conventions\Edit.cshtml" />
     <Content Include="Views\Conventions\Index.cshtml" />
+    <Content Include="Views\Conventions\ManageSystemConventions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1218,7 +1220,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62546</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62546/</IISUrl>
+          <IISUrl>http://localhost:8282/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

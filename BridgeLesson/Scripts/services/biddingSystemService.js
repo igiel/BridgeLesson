@@ -64,6 +64,12 @@
                 );
             };
 
+            dataFactory.getBiddingConventionsFromSystem = function (systemId) {
+                return $http.get(
+                    biddingConventionUrlBase + "BySystem/"+ systemId
+                );
+            };
+
             dataFactory.addConvention = function (convention) {
                 return $http.post(
                     biddingConventionUrlBase, convention

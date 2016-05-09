@@ -14,12 +14,23 @@ namespace BridgeLesson.Controllers
     {
         private readonly BridgeLessonDbContext db = new BridgeLessonDbContext();
 
-        // GET: api/BiddingConventions
+        // GET: api/BiddingConvention
         public async Task<IEnumerable<BiddingConvention>> GetBiddingConventions()
         {
-
             var biddingConventions = await db.BiddingConventions.ToListAsync();
             return biddingConventions;
+        }
+        
+        [HttpGet]
+        [Route("api/BiddingConvention/BySystem/{systemId}")]
+        // GET: api/BiddingConvention/BySystem/SystemId
+        public async Task<IEnumerable<BiddingConvention>> BySystem(int systemId)
+        {
+            if (systemId < 1)
+                return new List<BiddingConvention>();
+
+            var biddingSystem = await db.BiddingSystems.FindAsync(systemId);
+            return biddingSystem.BiddingSystemConventions.Select(bsc=>bsc.BiddingConvention);
         }
 
         // GET: api/BiddingConventions/5
@@ -108,6 +119,8 @@ namespace BridgeLesson.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+            db.Dispose();
+            db.Dispose();
         }
 
         private bool BiddingConventionExists(long id)

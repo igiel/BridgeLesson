@@ -1,0 +1,42 @@
+﻿<div class="row" ng-controller="SystemConventionController as systemConvCtrl">
+    <div class="col-md-6">
+        <label>
+            Conventions to add:
+        </label>
+        <div>
+            <ul>
+                <li ng-repeat="convention in systemConvCtrl.allConventions">
+                    {{convention.Name}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <label>
+            System conventions:
+        </label>
+        <div>
+            <ul>
+                <li ng-repeat="convention in systemConvCtrl.systemConventions">
+                    {{convention.Name}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="row" ng-if="biddingSystemCtrl.selectedBiddingConventionToAdd">
+    <div class="col-md-12">
+        <label>
+            Convention description:<br />
+            <i> {{biddingSystemCtrl.selectedBiddingConventionToAdd.Description}}</i><br />
+            <a class="btn btn-link" data-toggle="modal" data-target="#showAllSequences">See all sequences</a>
+        </label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-link" href="@Url.Action("")">Create your own convention!</a>
+    </div>
+</div>

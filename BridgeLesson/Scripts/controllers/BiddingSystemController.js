@@ -20,30 +20,30 @@
                 biddingSystemCtrl.allConventions = allConventions.data;
             });
 
-            biddingSystemService.getBiddingSequences()
+        biddingSystemService.getBiddingSequences()
             .then(function (sequences) {
                 biddingSystemCtrl.allBiddingExamples = sequences.data;
                 biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.allBiddingExamples;
              });
         
-            biddingSystemCtrl.updateSystem = function () {
+        biddingSystemCtrl.updateSystem = function () {
             if (biddingSystemCtrl.selectedSystem == undefined)
             {
                 biddingSystemCtrl.biddingExamples = null;
                 return;
             }
 
-            biddingSystemService.getBiddingSystem(biddingSystemCtrl.selectedSystem.Id)
-                .then(function(sequences) {
-                    biddingSystemCtrl.biddingExamples = sequences.data;
-                    biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
-                });
+        biddingSystemService.getBiddingSystem(biddingSystemCtrl.selectedSystem.Id)
+            .then(function(sequences) {
+                biddingSystemCtrl.biddingExamples = sequences.data;
+                biddingSystemCtrl.biddingExamplesNotUsedInSystem = biddingSystemCtrl.diffAllExamplesAndExamplesFromTheCurrentSystem();
+            });
 
-           biddingSystemService.getBiddingSystemAsParentChild(biddingSystemCtrl.selectedSystem.Id)
-                .then(function (rootBid) {
-                    biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
-                   setCollapseLevel(0, 0, biddingSystemCtrl.allBiddingExamplesAsParentChild.nextBids);
-               });
+        biddingSystemService.getBiddingSystemAsParentChild(biddingSystemCtrl.selectedSystem.Id)
+            .then(function (rootBid) {
+                biddingSystemCtrl.allBiddingExamplesAsParentChild = rootBid.data;
+                setCollapseLevel(0, 0, biddingSystemCtrl.allBiddingExamplesAsParentChild.nextBids);
+            });
 
         };
         
@@ -109,7 +109,7 @@
             biddingSystemService.addBiddingConventionToSystem(biddingSystemCtrl.selectedSystem.Id, biddingConventionToAdd.Id)
                 .then(function (addedSequence) {
                     biddingSystemCtrl.updateSystem();
-                    ctrl.msg = 'Convention added!';
+                    biddingSystemCtrl.msg = 'Convention added!';
                 });
         }
         
@@ -144,7 +144,7 @@
         }
 
         function setCollapseLevel(level, currentLevel, nextBids) {
-            if (currentLevel >= level) {
+            if (currentLevel >= level && nextBids) {
                 for (var i = 0; i < nextBids.length; i++) {
                     setCollapseLevel(level, ++currentLevel, nextBids[i].NextBids);
                 }

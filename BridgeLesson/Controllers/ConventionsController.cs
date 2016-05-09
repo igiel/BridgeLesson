@@ -21,6 +21,7 @@ namespace BridgeLesson.Controllers
             return View(await db.BiddingConventions.ToListAsync());
         }
 
+       
         // GET: Conventions/Details/5
         public async Task<ActionResult> Details(long? id)
         {
@@ -114,6 +115,11 @@ namespace BridgeLesson.Controllers
             db.BiddingConventions.Remove(biddingConvention);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public PartialViewResult ManageSystemConventions()
+        {
+            return PartialView();
         }
 
         protected override void Dispose(bool disposing)
