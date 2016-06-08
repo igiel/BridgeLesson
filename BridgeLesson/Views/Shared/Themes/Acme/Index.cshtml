@@ -3,9 +3,36 @@
 }
 
 <!-- Sequence Modern Slider -->
-@*<div id="da-slider" class="da-slider">
+<div id="da-slider" class="da-slider">
 
-        <div class="da-slide">
+    <div class="da-slide">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>
+                        <i>LEARN</i>
+                        <br>
+                        <i>PLAY</i>
+                        <br>
+                        <i>WIN</i>
+                    </h2>
+                    <p>
+                        <i>Lorem ipsum dolor amet</i>
+                        <br />
+                        <i>veniam omnis</i>
+                    </p>
+                    <a href="#" class="btn btn-info btn-lg da-link">
+                        Read more
+                    </a>
+                    <div class="da-img">
+                        @*<img src="~/Content/img/bg1.JPG" alt="image01" />*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        @*<div class="da-slide">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -88,7 +115,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
 
         <nav class="da-arrows">
             <span class="da-arrows-prev">
@@ -96,7 +123,7 @@
             <span class="da-arrows-next">
             </span>
         </nav>
-    </div>*@
+    </div>
 
 <!--feature start-->
 @*<div class="container">
@@ -366,14 +393,13 @@
 
 
 <!--recent work start-->
-<div class="bg-lg">
+@*<div class="bg-lg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 recent">
                 <h3 class="recent-work pull-left">
                     Bridge Lessons
                 </h3>
-                @*<p>Some of our work we have done earlier</p>*@
                 <div id="owl-demo" class="owl-carousel owl-theme wow fadeIn">
 
                     <div class="item view view-tenth">
@@ -436,9 +462,9 @@
             </div>
         </div>
     </div>
-    <!--recent work end-->
-</div>
+</div>*@
 
+    <!--recent work end-->
 
 
 <div id="home-services">
@@ -452,7 +478,6 @@
                 <p>@*What would you like to practice?*@</p>
             </div>
 
-            <div class="col-md-2"></div>
             <div class="col-md-4">
                 <div class="h-service">
                     <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
@@ -483,22 +508,21 @@
                     </div>
                     <div class="h-service-content wow fadeInUp">
                         <h3>
-                            BIDDING
+                            CHECK THE SYSTEM
                         </h3>
                         <p>
-                            Having the same agreements with your partner in bidding helps you
+                            TODO - Having the same agreements with your partner in bidding helps you
                             to play the best possible contract
                             <br>
-                            <a href="@Url.Action("BiddingLesson", "Home")">
-                                Bidding lesson
+                            <a href="@Url.Action("ManageBiddingSystem", "Home")">
+                                Bidding sytsems
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2"></div>
 
-            @*<div class="col-md-4">
+            <div class="col-md-4">
                     <div class="h-service">
                         <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
                             <i class="fa fa-users">
@@ -506,19 +530,19 @@
                         </div>
                         <div class="h-service-content wow fadeInUp">
                             <h3>
-                                CHECK FORUM
+                                TEST YOURSELF
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim laborum.
                                 <br>
-                                <a href="#">
-                                    Learn more
+                                <a href="@Url.Action("BiddingQuiz")">
+                                    Start bidding quiz!
                                 </a>
                             </p>
                         </div>
                     </div>
-                </div>*@
+                </div>
         </div>
         <!-- /row -->
 

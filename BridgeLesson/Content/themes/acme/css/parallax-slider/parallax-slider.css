@@ -5,8 +5,9 @@
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
-	background: transparent url(../../img/parallax-slider/images/main-bg.jpg) repeat 0% 0%;
+	background: transparent url(../../../../../Content/img/bg-flowers.jpg) repeat 0% 0%;
 	border-top: 1px solid #eee;
+    background-size: cover;
 	border-bottom: 1px solid #eee;
 	/*box-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px -2px 1px #fff;*/
 	-webkit-transition: background-position 1s ease-out 0.3s;

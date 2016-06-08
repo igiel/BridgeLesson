@@ -265,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular.treeview.css" />
+    <Content Include="Content\img\bg-flowers.jpg" />
     <Content Include="Content\img\bg1.JPG" />
     <Content Include="Content\img\club-icon.png" />
     <Content Include="Content\img\club.png" />
@@ -1414,6 +1415,7 @@
     <Content Include="Views\Conventions\Index.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Shared\Themes\Acme\Index.cshtml" />
+    <Content Include="Views\Shared\Themes\Acme\Breadcrumbs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
