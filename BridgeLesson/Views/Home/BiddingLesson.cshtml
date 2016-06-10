@@ -1,17 +1,24 @@
-﻿
-<div class="row" ng-app="BridgeLessonModule">
-    <div class="col-sm-12">
-        <div class="subpage-header">
-            <h2>Bidding system lesson</h2>
-            <p class="lead">Start the bidding quiz or check, extend and create your own bidding system</p>
+﻿@{
+    ViewBag.Title = "Bidding lessons";
+}
+
+@Html.Partial("Themes/Acme/Breadcrumbs")
+<div class="container">
+
+    <div class="row" ng-app="BridgeLessonModule">
+        <div class="col-sm-12">
+            <div class="subpage-header">
+                <h2>Bidding system lesson</h2>
+                <p class="lead">Start the bidding quiz or check, extend and create your own bidding system</p>
+            </div>
+            <div class="text-center">
+                <p class="bidding-lesson-main-text">So, what is your choice?</p>
+                <a href="@Url.Action("ManageBiddingSystem")" class="btn btn-navigate">Check system</a>
+                <a href="@Url.Action("BiddingQuiz")" class="btn btn-navigate">Start bidding quiz!</a>
+            </div>
         </div>
-        <div class="text-center">
-            <p class="bidding-lesson-main-text">So, what is your choice?</p>
-            <a href="@Url.Action("ManageBiddingSystem")" class="btn btn-navigate">Check system</a>
-            <a href="@Url.Action("BiddingQuiz")" class="btn btn-navigate">Start bidding quiz!</a>
-        </div>
+
+
+
     </div>
-
-    
-
-</div>
+    </div>
