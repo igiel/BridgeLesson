@@ -26,6 +26,10 @@ namespace BridgeLesson.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
         public PartialViewResult addNewBiddingSequence()
         {
             return PartialView("addNewBiddingSequence");

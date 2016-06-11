@@ -1425,6 +1425,7 @@
     <Content Include="Views\Shared\Themes\Acme\Index.cshtml" />
     <Content Include="Views\Shared\Themes\Acme\Breadcrumbs.cshtml" />
     <Content Include="Views\Conventions\ManageSystemConventions.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1474,7 +1475,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62546</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8282/</IISUrl>
+          <IISUrl>http://localhost:8282/BridgeLesson</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
