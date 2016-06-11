@@ -19,10 +19,13 @@
             }
 
             biddingSystemService.getBiddingSystem(biddingCtrl.selectedSystem.Id)
-                .then(function (sequences) {
+                .then(function(sequences) {
                     biddingCtrl.biddingExamples = sequences.data;
+                    if (biddingCtrl.biddingExamples) {
+                        shuffleArray(biddingCtrl.biddingExamples);
+                    }
                     resetValues();
-                })
+                });
         };
           
         resetValues();
@@ -89,6 +92,23 @@
             return biddingCtrl.currentProblem >= biddingCtrl.biddingExamples.length;
         }
 
+        // -> Fisher–Yates shuffle algorithm
+        function shuffleArray(array) {
+            var m = array.length, t, i;
+
+            // While there remain elements to shuffle
+            while (m) {
+                // Pick a remaining element…
+                i = Math.floor(Math.random() * m--);
+
+                // And swap it with the current element.
+                t = array[m];
+                array[m] = array[i];
+                array[i] = t;
+            }
+
+            return array;
+        }
 
     };
 

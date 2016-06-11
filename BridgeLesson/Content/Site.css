@@ -1,4 +1,4 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
     height: 100%;
@@ -10,20 +10,20 @@
 
 html {
         height: 100%;
-}
+}*/
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+/*.dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -44,7 +44,7 @@ textarea {
     }
 }
 
-.main-page-header {
+/*.main-page-header {
     background-color: #AD485B;
     color: white;
 }
@@ -66,9 +66,9 @@ textarea {
 
 .bidding-lesson-main-text {
     margin-bottom: 30px;
-}
+}*/
 
-.btn-navigate {
+/*.btn-navigate {
   background-color: hsl(0, 69%, 22%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b42121", endColorstr="#5e1111");
@@ -87,7 +87,7 @@ textarea {
 
 .btn-navigate:hover {
     background-color: #790B0B;
-}
+}*/
 
 .tree-row {
     border-bottom: 1px dashed silver;
@@ -134,4 +134,8 @@ textarea {
 
 .biddingBox span {
     cursor: pointer;
+}
+
+.RenderBody {
+    margin-bottom: 20px;
 }

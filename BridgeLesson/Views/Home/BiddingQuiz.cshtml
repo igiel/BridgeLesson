@@ -22,7 +22,9 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="row" ng-if="biddingCtrl.biddingExamples">
+                    <div class="col-md-12">Number of questions: {{biddingCtrl.currentProblem}}/{{biddingCtrl.biddingExamples.length}}</div>
+                </div>
                 <div class="row" ng-if="biddingCtrl.selectedSystem && biddingCtrl.biddingExamples.length>0">
                     <div class="col-md-12">
                         <bidding-quiz ng-hide="biddingCtrl.allProblemsSolved"></bidding-quiz>
@@ -36,4 +38,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
