@@ -75,3 +75,6 @@ textarea {
     margin-bottom: -20px;
     padding: 50px 0 20px 0;
 }
+.breadcrumbs {
+    margin-bottom: 12px !important;
+}
